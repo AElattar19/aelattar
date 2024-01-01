@@ -20,5 +20,7 @@ interface SettingRepositoryInterface
 
     public function update(int $id, $request): Setting;
 
+    public function getLatest(): Setting;
+
     public function delete(int $id): bool;
 }

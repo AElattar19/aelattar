@@ -18,12 +18,12 @@
     <!-- breadcrumb -->
 
     <!-- row -->
-    <form method="post" enctype="multipart/form-data" action="{{ route('category.create') }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('category.store') }}">
 
     <div class="row row-sm">
         <!-- Col -->
         @csrf
-        {{ method_field('PUT') }}
+        
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -34,9 +34,6 @@
             </div>
         @endif 
 
-        <!-- Col -->
-        <input type="hidden" name="active" value="{{$data->active}}">
-        <input type="hidden" name="parent" value="{{$data->parent}}">
         
         <div class="row row-sm col-lg-12">
             <div class="col-lg-12 col-md-12">
@@ -48,34 +45,38 @@
                         <div class="text-wrap">
                             <div class="example">
                                 <div class="panel panel-primary tabs-style-1">
-                                    <div class=" tab-menu-heading">
-                                        <div class="tabs-menu1">
-                                            <!-- Tabs -->
-                                            <ul class="nav panel-tabs main-nav-line">
-                                                @foreach (config('app.languages') as $key=>$lang)                                            
-                                                    <li class="nav-item"><a href="#{{ $key }}" class="nav-link @if ($loop->index==0) active @endif" data-toggle="tab">{{ $lang }}</a></li>
-                                               @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
+
                                     <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
                                         <div class="tab-content">
-                                            @foreach (config('app.languages') as $key=>$lang)                                            
-                                                <div class="tab-pane @if ($loop->index==0) active @endif" id="{{ $key }}">
+                                                
                                                     <div class="row row-sm">
                                                         <div class="col-lg-12 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10 required">title</p>
-                                                            <input class="form-control" id="Text input with radiobox" type="text" name="{{ $key }}[title]" value="" required>
+                                                            <input class="form-control" id="Text input with radiobox" type="text" name="title"  required>
                                                         </div>
 
                                                         <div class="col-lg-12 mg-b-20 mg-lg-b-0">
-                                                            <p class="mg-b-10 ">descreption</p>
-                                                            <textarea rows="10" class="form-control" name="{{ $key }}[des]" ></textarea>
+                                                            <p class="mg-b-10 required">title</p>
+                                                            <input class="form-control" type="file" name="image"  required>
                                                         </div>
 
+                                                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
+                                                            <p class="mg-b-10">status</p>
+                                                            <select name="status" id="status" class="form-control" >
+                                                                <option value="1">publish</option>
+                                                                <option value="0">un publish</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
+                                                            <p class="mg-b-10">rank</p>
+                                                            <select class="form-control select2-no-search" name="rank">
+                                                                @for ($i = 1; $i <= 30; $i++)
+                                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                                @endfor                                                                             
+                                                            </select> 
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            @endforeach
+                                               
         
                                         </div>
                                     </div>

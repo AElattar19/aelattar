@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class SettingSeeder extends Seeder
 {
@@ -12,6 +13,15 @@ class SettingSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('settings')->insert([
+            'title' => 'user',
+            'des' => 'user@gmail.com',
+            'mk' => 'user@gmail.com',
+            'md' => 'user@gmail.com',
+            'youtube' => 'user@gmail.com',
+            'facebook' => 'user@gmail.com',
+            'github' => 'user@gmail.com',
+            'linkedin' => 'user@gmail.com',
+        ]);
     }
 }

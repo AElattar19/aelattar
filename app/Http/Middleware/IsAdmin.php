@@ -15,7 +15,7 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->guard('web')->user()->is_admin == 1) {
+       if (auth()->guard('web')->user()->is_admin == 1) {
             return $next($request);
        }
        $value = session('key', 'default');

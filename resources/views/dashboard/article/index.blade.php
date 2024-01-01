@@ -30,11 +30,8 @@
             <div class="card-header">
                 <h3 class="card-title">{{__('admin.all_admins')}}</h3>
                 <div class="card-tools">
-                    <a href="{{  route('cat.index') }}" class="btn btn-primary create add-permission">
-                        <i class="ti-plus"></i> {{__('admin.NewsCatogery')}}
-                    </a>
    
-                    <a href="{{  route('article.create') }}" class="btn btn-primary create add-permission">
+                    <a href="{{  route('CreateNewArticle', $id) }}" class="btn btn-primary create add-permission">
                         <i class="ti-plus"></i> {{__('admin.NewNews')}}
                     </a>
                 </div>

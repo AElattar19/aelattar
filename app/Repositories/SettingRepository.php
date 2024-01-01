@@ -30,6 +30,11 @@ class SettingRepository implements SettingRepositoryInterface
         return Setting::find($id);
     }
 
+    public function getLatest():Setting
+    {
+        return Setting::first();
+    }
+
     public function create($request): Setting
     {
         return Setting::create($request);

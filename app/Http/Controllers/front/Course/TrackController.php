@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Controllers\front\Course;
+use App\Http\Controllers\Controller;
+use App\Models\Track;
+use App\Http\Requests\StoreTrackRequest;
+use App\Http\Requests\UpdateTrackRequest;
+use App\Repositories\Interfaces\TrackRepositoryInterface;
+
+class TrackController extends Controller
+{
+    private TrackRepositoryInterface $repository;
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function __construct(TrackRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreTrackRequest $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Track $track)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Track $track)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateTrackRequest $request, Track $track)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Track $track)
+    {
+        //
+    }
+}

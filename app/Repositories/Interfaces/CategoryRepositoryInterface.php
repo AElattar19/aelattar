@@ -8,7 +8,7 @@ use App\Models\Category;
 
 interface CategoryRepositoryInterface
 {
-    public function all():array;
+    public function all();
     
     public function latest(int $id):array;
 

@@ -23,26 +23,30 @@ class ArticleController extends Controller
     {
         $this->repository = $repository;
     }
-    public function index(Request $request)
-    {
-        if (request()->ajax()) {           
-            $categories = Article::all();
-            return DataTables::of($categories)
-               ->addIndexColumn()
-               ->addColumn('catogary', function ($row) {
-                   return $row->cats->title;
-               })
-               ->addColumn('active', function ($row) {
-                   return $row->active == 1 ? "active" : "Inactive";
-               })
-               ->addColumn('action', function ($categories) {
 
-                   $html = '<a class="btn btn-info btn-sm" href="' . route('news.edit', $categories->id) . '">
+    public function index (Request $request, $id)
+    {
+
+        if ($request->ajax()) {
+
+            $menus = Article::query()->where('category_id', $id)->get();
+            return DataTables::of($menus)
+               ->addIndexColumn()
+               ->addColumn('type', function ($row) {
+                return $row->type == 1 ? "steps" : "essential service";
+                })
+               ->addColumn('rank', function ($row) {
+                return $row->rank ;
+                })
+
+               ->addColumn('action', function ($menus) {
+
+                   $html = '<a class="btn btn-info btn-sm" href="' . route('news.edit', $menus->id) . '">
                                    <i class="fas fa-pencil-alt">
                                    </i>
                                </a> &nbsp;';
 
-                       $html .= '<form action="' . route('news.destroy', $categories->id) . '"
+                       $html .= '<form action="' . route('news.destroy', $menus->id) . '"
                                          method="post" style="display: inline-block;">
                                        ' . method_field('delete') . '
                                         ' . csrf_field() . '
@@ -54,14 +58,16 @@ class ArticleController extends Controller
                                    </form>';
 
 
-                   return $html;
-               })
-               ->rawColumns(['news','catogary','active','action'])
-               ->make(true);
-   }
-
-   return view('dashboard.article.index');
+                    return $html;
+                })
+                ->rawColumns(['news','catogary','active','action'])
+                ->make(true);
     }
+    
+    return view('dashboard.article.index', compact('id'));
+        }
+
+   
 
     /**
      * Show the form for creating a new resource.

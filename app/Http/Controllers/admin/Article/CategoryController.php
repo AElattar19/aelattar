@@ -30,22 +30,24 @@ class CategoryController extends Controller
        
         if ($request->ajax()) {
             
-                 $categories = Category::all();
+
+                 $categories = $this->repository->all();
                  return DataTables::of($categories)
                     ->addIndexColumn()
-                    ->addColumn('id', function ($row) {
-                        return $row->id;
+                    ->addColumn('checkbox', function ($row) {
+                        return '<input type="checkbox" id="'.$row->id.'" value="'.$row->id.'" name="ids[]"  />';
                     })
-                    ->addColumn('Number', function ($row) {
-                        $countNews = Article::where('cat_id', $row->id)->count();
-                        return $countNews;
+                    ->addColumn('article', function ($row) {
+                        $countNews = Article::where('category_id', $row->id)->count();                       
+                        return '<h6><a href="article/category/'. $row->id .'">'. $countNews .'</a></h6>';
+                        
                     })
-                    ->addColumn('active', function ($row) {
-                        return $row->active == 1 ? "active" : "Inactive";
+                    ->addColumn('status', function ($row) {
+                        return $row->status == 1 ? "active" : "Inactive";
                     })
                     ->addColumn('action', function ($categories) {
 
-                        $html = '<a class="btn btn-info btn-sm" href="' . route('cat.edit', $categories->id) . '">
+                        $html = '<a class="btn btn-info btn-sm" href="' . route('category.edit', $categories->id) . '">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                     </a> &nbsp;';
@@ -54,11 +56,11 @@ class CategoryController extends Controller
     
                         return $html;
                     })
-                    ->rawColumns(['id','news','active','action'])
+                    ->rawColumns(['checkbox','article','status','action'])
                     ->make(true);
         }
 
-        return view('dashboard.article.cat.index');
+        return view('dashboard.cat.index');
     
 }
 
@@ -67,15 +69,29 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.cat.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = [
+            'title' => 'required|string|max:255',
+            'status' => 'required|integer',
+            'rank' => 'required|integer',
+        ];
+
+        $validatedData = $request->validate($data);
+        $post = $this->repository->create($request->except('image'));
+
+        $image = $post->addMedia($request->file('image'))
+                      ->toMediaCollection('category');
+        $image->save();
+
+        //Category::create($validatedData);
+        return redirect()->route('category.index'); 
     }
 
     /**
@@ -108,5 +124,17 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+    }
+
+    public function massDelete(Request $request)
+    {
+        $admins = Category::whereIn('id', $request->get('ids'))->get();
+
+        $admins->each(function ($admin) {
+            $admin->delete();
+        });
+
+        return redirect()->route('category.index'); 
+
     }
 }

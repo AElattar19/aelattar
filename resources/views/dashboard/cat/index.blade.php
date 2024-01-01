@@ -27,22 +27,35 @@
 
         <!-- Default box -->
         <div class="card">
-
+            <div class="card-header">
+                <h3 class="card-title">{{__('admin.all_admins')}}</h3>
+                <div class="card-tools">
+                    <a href="{{  route('category.create') }}" class="btn btn-primary create add-permission">
+                        <i class="ti-plus"></i> {{__('admin.NewsCatogery')}}
+                    </a>
+ 
+                </div>
+            </div>
             <div class="card-body" >
+                
                 <table class="table table-bordered yajra-datatable">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>checkbox</th>
                             <th>title</th>
-                            <th>news</th>
-                            <th>active</th>
+                            <th>article</th>
+                            <th>status</th>
                             <th width="150px">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
-               
+
+                <input type="button" class="btn btn-warning" onclick='selects()' value="Select All"/>  
+                <input type="button" class="btn btn-primary" onclick='deSelect()' value="Deselect All"/>  
+                <input type="submit" id="submitButton" class="btn btn-danger" value="Delete All"/> 
+                </form>                
             </div>
             <!-- /.card-body -->
         </div>
@@ -74,15 +87,46 @@
           ],
           ajax: "{{ route('category.index') }}",
           columns: [
-              {data: 'id', name: 'id'},
+              {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
               {data: 'title', name: 'title'},
-              {data: 'news', name: 'news'},
-              {data: 'active', name: 'active'},
+              {data: 'article', name: 'article'},
+              {data: 'status', name: 'status'},
               {data: 'action', name: 'action',  orderable: true,searchable: true }
           ]
       });
       
     });
+
+
+    
+    $(document).ready(function() {
+    // عند النقر على زر الإرسال
+    $("#submitButton").on("click", function() {
+        // التحقق من أن خانة اختيار واحدة على الأقل محددة
+        if ($("input[type=checkbox]:checked").length === 0) {
+            // إظهار رسالة خطأ
+            alert("you must select At least one of the checkboxes");
+            // منع إرسال النموذج
+            return false;
+        }
+    });
+}); 
+
+function selects(){  
+var ele=document.getElementsByName('ids[]');  
+for(var i=0; i<ele.length; i++){  
+    if(ele[i].type=='checkbox')  
+        ele[i].checked=true;  
+}  
+}  
+function deSelect(){  
+    var ele=document.getElementsByName('ids[]');  
+    for(var i=0; i<ele.length; i++){  
+        if(ele[i].type=='checkbox')  
+            ele[i].checked=false;  
+            
+    }  
+}
   </script>
 
 

@@ -3,15 +3,16 @@
 namespace App\Providers;
 
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\ServiceProvider;
-use App\Repositories\ArticleRepository;
-use App\Repositories\SettingRepository;
-use App\Repositories\CategoryRepository;
+use App\Models\Setting;
 use App\Repositories\UserRepository;
 use App\Repositories\TrackRepository;
 use App\Repositories\CourseRepository;
 use App\Repositories\LessonRepository;
+use Illuminate\Support\Facades\Schema;
+use App\Repositories\ArticleRepository;
+use App\Repositories\SettingRepository;
+use Illuminate\Support\ServiceProvider;
+use App\Repositories\CategoryRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\Interfaces\TrackRepositoryInterface;
 use App\Repositories\Interfaces\CourseRepositoryInterface;
@@ -42,6 +43,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
+        view()->composer('*', function ($view) {
+            $settingRepository = app()->make(SettingRepository::class);
+            $setting = $settingRepository->getLatest();
+            $view->with('setting', $setting);
+        });
 
     }
 }

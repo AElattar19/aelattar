@@ -63,6 +63,10 @@
                                             @foreach (config('app.languages') as $key=>$lang)                                            
                                                 <div class="tab-pane @if ($loop->index==0) active @endif" id="{{ $key }}">
                                                     <div class="row row-sm">
+                                                        <div class="col-lg-4 mg-b-20 mg-lg-b-0">
+                                                            <p class="mg-b-10">photo title</p>
+                                                            <input class="form-control" id="Text input with radiobox" type="file" name="{{ $key }}[photo_title]" >
+                                                        </div><!-- col-4 -->
                                                         <div class="col-lg-12 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10 required">title</p>
                                                             <input class="form-control" id="Text input with radiobox" type="text" name="{{ $key }}[title]" value="{{ $data->translate($key)->title }}" required>
@@ -152,6 +156,14 @@
                     <div class="card-body pt-0">
 
 
+                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
+                            <img src="{{ $data->photo }}" style="width: 75px;">
+                        </div><!-- col-4 -->
+
+                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
+                            <p class="mg-b-10">photo</p>
+                            <input class="form-control" id="Text input with radiobox" type="file" name="photo" >
+                        </div><!-- col-4 -->
         
                             <div class="form-group mb-0 mt-3 justify-content-end">
                                 <div>

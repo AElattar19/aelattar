@@ -14,9 +14,9 @@ class CategoryRepository implements CategoryRepositoryInterface
      */
     protected $model;
 
-    public function all():array
+    public function all()
     {
-       return Category::all()->toArray();
+       return Category::all();
     }
 
     public function latest(int $id):array
