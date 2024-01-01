@@ -4,8 +4,8 @@
 
       <a href="{{ (route ('home')) }}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="{{asset("front/assets/img/logo.png") }}" alt=""> -->
-        <h1>Logis</h1>
+        <img src="{{asset("front/assets/img/logo.png") }}" alt="">
+        <h1>A.Elattar</h1>
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -34,7 +34,7 @@
             </ul>
           </li>
           <li><a href="about.html">{{ __('front.Contact') }}</a></li>
-          <li><a class="get-a-quote" href="get-a-quote.html">Get a Quote</a></li>
+          <li><a class="get-a-quote" href="get-a-quote.html">{{ __('front.Ask') }}</a></li>
         </ul>
       </nav><!-- .navbar -->
 

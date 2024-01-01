@@ -287,7 +287,7 @@ section {
 .header {
   transition: all 0.5s;
   z-index: 997;
-  padding: 30px 0;
+  padding: 10px 0;
 }
 
 .header.sticked {
@@ -298,7 +298,7 @@ section {
 
 .header .logo img {
   max-height: 40px;
-  margin-right: 6px;
+  margin-left: 6px;
 }
 
 .header .logo h1 {
@@ -357,9 +357,9 @@ section {
 
   .navbar .get-a-quote,
   .navbar .get-a-quote:focus {
-    background: var(--color-primary);
+    background: #2756ff;
     padding: 8px 20px;
-    margin-left: 30px;
+    margin-right: 30px;
     border-radius: 4px;
     color: #fff;
   }
@@ -1752,25 +1752,23 @@ section {
 }
 
 .hero form .btn-primary {
-  background-color: var(--color-primary);
-  padding: 15px 30px;
+  background-color: #2756ff;
+  padding: 10px 20px;
 }
 
 .hero form .btn-primary:hover {
-  background-color: #2756ff;
+  background-color: var(--color-primary)
 }
 
 .hero .stats-item {
-  padding: 30px;
+  padding: 10px;
   width: 100%;
 }
 
 .hero .stats-item span {
-  font-size: 32px;
+  font-size: 20px;
   display: block;
   font-weight: 700;
-  margin-bottom: 15px;
-  padding-bottom: 15px;
   position: relative;
 }
 
@@ -1790,7 +1788,7 @@ section {
 .hero .stats-item p {
   padding: 0;
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 }
 

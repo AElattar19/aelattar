@@ -6,8 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>{{ $setting->title }}</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="{{ $setting->md }}" name="description">
+  <meta content="{{ $setting->mk }}" name="keywords">
 
   <!-- Favicons -->
   <link href="{{asset("front/assets/img/favicon.png") }}" rel="icon">
@@ -56,28 +56,28 @@
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
                   <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Clients</p>
+                  <p>{{ __('front.Tracks') }}</p>
                 </div>
               </div><!-- End Stats Item -->
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
                   <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Projects</p>
+                  <p>{{ __('front.courses_num') }}</p>
                 </div>
               </div><!-- End Stats Item -->
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
                   <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Support</p>
+                  <p>{{ __('front.Videos_Num') }}</p>
                 </div>
               </div><!-- End Stats Item -->
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
                   <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Workers</p>
+                  <p>{{ __('front.Aticles_Num') }}</p>
                 </div>
               </div><!-- End Stats Item -->
 
