@@ -22,7 +22,6 @@
 
 /* Fonts */
 
-
 /* Colors */
 :root {
   --color-default: #0a0d13;
@@ -336,7 +335,7 @@ section {
     padding: 10px 0 10px 30px;
     font-size: 16px;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
+    color: #fff;
     white-space: nowrap;
     transition: 0.3s;
   }
@@ -376,14 +375,19 @@ section {
     left: 14px;
     top: calc(100% + 30px);
     margin: 0;
-    padding: 10px 0;
+    padding:  0;
     z-index: 99;
     opacity: 0;
     visibility: hidden;
-    background: #fff;
+    background: #2756ff;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
     transition: 0.3s;
     border-radius: 4px;
+  }
+
+  .navbar .dropdown ul li:hover {
+    background:#0e1d34;
+    
   }
 
   .navbar .dropdown ul li {
@@ -395,7 +399,7 @@ section {
     font-size: 15px;
     text-transform: none;
     font-weight: 400;
-    color: var(--color-secondary);
+    color: #fff
   }
 
   .navbar .dropdown ul a i {
@@ -405,7 +409,7 @@ section {
   .navbar .dropdown ul a:hover,
   .navbar .dropdown ul .active:hover,
   .navbar .dropdown ul li:hover>a {
-    color: var(--color-primary);
+    color: #fff
   }
 
   .navbar .dropdown:hover>ul {

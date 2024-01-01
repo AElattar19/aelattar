@@ -17,10 +17,10 @@ return new class extends Migration
             $table->longText('mk');
             $table->longText('md');
             $table->longText('des');
-            $table->string('youtube');
-            $table->string('facebook');
-            $table->string('github');
-            $table->string('linkedin');
+            $table->string('youtube')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('github')->nullable();
+            $table->string('linkedin')->nullable();
             $table->timestamps();
         });
     }

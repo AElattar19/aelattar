@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\Home\HomeController;
 use App\Http\Controllers\admin\admin\AdminController;
 use App\Http\Controllers\admin\Article\ArticleController;
+use App\Http\Controllers\admin\Setting\SettingController;
 use App\Http\Controllers\admin\Article\CategoryController;
 
 /*
@@ -33,7 +34,7 @@ Route::group(['prefix'=>'Adminstration','middleware'=>['auth','IsAdmin']], funct
         'admins' => AdminController::class,
         'category' => CategoryController::class,
         'article' => ArticleController::class,
-
+        'setting' => SettingController::class,
 
 
     ]);

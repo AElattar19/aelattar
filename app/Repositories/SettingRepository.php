@@ -45,14 +45,10 @@ class SettingRepository implements SettingRepositoryInterface
         return $this->getbyid($id);
     }
 
-    public function update(int $id, $request):Setting
+    public function update(int $id,  $request):Setting
     {
         $post = $this->getbyid($id);
-
-        $input = $request->validated();
-
-        $post->update($input);
-
+        $post->update($request);
         return $post;
     }
 

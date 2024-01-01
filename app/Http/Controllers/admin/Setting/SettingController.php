@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\admin\Setting;
-use App\Http\Controllers\Controller;
 use App\Models\Setting;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
 use App\Repositories\Interfaces\SettingRepositoryInterface;
@@ -20,7 +21,8 @@ class SettingController extends Controller
     }
     public function index()
     {
-        //
+        $data = $this->repository->getLatest();
+        return view('dashboard.setting.index', compact('data'));
     }
 
     /**
@@ -58,9 +60,21 @@ class SettingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSettingRequest $request, Setting $setting)
+    public function update(Request $request, string $id)
     {
-        //
+        $data = [
+            'title' => 'required|string|max:255',
+            'mk' => 'required|string',
+            'md' => 'required|string|max:255',
+            'des' => 'required|string|max:255',
+            'youtube' => 'nullable|string|max:255',
+            'facebook' => 'nullable|string|max:255',
+            'github' => 'nullable|string|max:255',
+            'linkedin' => 'nullable|string|max:255',
+        ];
+        $validatedData = $request->validate($data);
+        $this->repository->update($id, $request->except('logo','favicon'));
+        return redirect()->route('setting.index');
     }
 
     /**

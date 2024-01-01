@@ -18,7 +18,7 @@ interface SettingRepositoryInterface
 
     public function edit(int $id): Setting;
 
-    public function update(int $id, $request): Setting;
+    public function update(int $id,  $request): Setting;
 
     public function getLatest(): Setting;
 
