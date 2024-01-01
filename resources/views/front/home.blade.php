@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 
 <head>
   <meta charset="utf-8">
@@ -48,7 +48,7 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{{ (route ('home')) }}" class="active">الرئيسية</a></li>
+          <li><a href="{{ (route ('home')) }}" class="active">{{ __('front.home') }}</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="pricing.html">Pricing</a></li>

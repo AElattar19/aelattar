@@ -14,8 +14,7 @@ return [
     */
 
     'category' => 'مكتبة الشروحات',
-    'dashboard' => 'dashboard',
-    'home' => 'home',
+    'home' => 'الرئيسية',
     'all_admins' => 'All Admins',
     'NewAdmin' => 'NewAdmin',
     'admins' => 'admins',
