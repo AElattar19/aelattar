@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'category' => 'مكتبة الشروحات',
-    'home' => 'الرئيسية',
-    'all_admins' => 'All Admins',
-    'NewAdmin' => 'NewAdmin',
-    'admins' => 'admins',
-    'admins' => 'admins',
+    'Category' => 'مكتبة الدروس',
+    'Home' => 'الرئيسية',
+    'Search' => 'بحث',
+    'Tracks' => 'الدورات التعليمية',
+    'Contact' => 'اتصل  بنا',
+    'Contact_Holder' => 'بحث...',
     'admins' => 'admins',
     'admins' => 'admins',
     'admins' => 'admins',

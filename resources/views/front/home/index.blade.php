@@ -1,4 +1,4 @@
-@extends('front.layouts.master')
+@extends('front.layouts.master',['banner' =>'yeas'])
 
 @section('main')
 <main id="main">
@@ -103,8 +103,7 @@
               <div class="card-img">
                 <img src="{{asset("front/assets/img/storage-service.jpg") }}" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Storage</a></h3>
-              <p>Cumque eos in qui numquam. Aut aspernatur perferendis sed atque quia voluptas quisquam repellendus temporibus itaqueofficiis odit</p>
+              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
             </div>
           </div><!-- End Card Item -->
 
@@ -113,8 +112,7 @@
               <div class="card-img">
                 <img src="{{asset("front/assets/img/logistics-service.jpg") }}" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Logistics</a></h3>
-              <p>Asperiores provident dolor accusamus pariatur dolore nam id audantium ut et iure incidunt molestiae dolor ipsam ducimus occaecati nisi</p>
+              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
             </div>
           </div><!-- End Card Item -->
 
@@ -123,8 +121,7 @@
               <div class="card-img">
                 <img src="{{asset("front/assets/img/cargo-service.jpg") }}" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Cargo</a></h3>
-              <p>Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque oluptatem aut et molestiae ut et nihil</p>
+              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
             </div>
           </div><!-- End Card Item -->
 
@@ -133,8 +130,7 @@
               <div class="card-img">
                 <img src="{{asset("front/assets/img/trucking-service.jpg") }}" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Trucking</a></h3>
-              <p>Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque oluptatem aut et molestiae ut et nihil</p>
+              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
             </div>
           </div><!-- End Card Item -->
 
@@ -143,8 +139,7 @@
               <div class="card-img">
                 <img src="{{asset("front/assets/img/packaging-service.jpg") }}" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Packaging</a></h3>
-              <p>Illo consequuntur quisquam delectus praesentium modi dignissimos facere vel cum onsequuntur maiores beatae consequatur magni voluptates</p>
+              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
             </div>
           </div><!-- End Card Item -->
 
@@ -153,8 +148,7 @@
               <div class="card-img">
                 <img src="{{asset("front/assets/img/warehousing-service.jpg") }}" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Warehousing</a></h3>
-              <p>Quas assumenda non occaecati molestiae. In aut earum sed natus eatae in vero. Ab modi quisquam aut nostrum unde et qui est non quo nulla</p>
+              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
             </div>
           </div><!-- End Card Item -->
 

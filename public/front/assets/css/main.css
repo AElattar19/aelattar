@@ -26,7 +26,7 @@
 /* Colors */
 :root {
   --color-default: #0a0d13;
-  --color-primary: #0d42ff;
+  --color-primary: rgba(14, 29, 52, 1);
   --color-secondary: #0e1d34;
 }
 
@@ -754,16 +754,19 @@ section {
 --------------------------------------------------------------*/
 .services .card {
   border: 1px solid rgba(14, 29, 52, 0.15);
+
   background: #fff;
   position: relative;
-  border-radius: 0;
+  border-radius: 5px;
   height: 100%;
+  background: rgba(14, 29, 52, 0.03);
+
 }
 
 .services .card .card-img {
   overflow: hidden;
   margin-bottom: 15px;
-  border-radius: 0;
+  border-radius: 5px;
 }
 
 .services .card .card-img img {
@@ -771,11 +774,12 @@ section {
 }
 
 .services .card h3 {
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: bold;
+  font-size: 14px;
   margin-bottom: 5px;
-  padding: 10px 30px;
+  padding: 10px;
   text-transform: uppercase;
+  text-align: justify;
 }
 
 .services .card a {
@@ -1726,13 +1730,13 @@ section {
 
 .hero form {
   background: #fff;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
 }
 
 .hero form .form-control {
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
   border: none;
