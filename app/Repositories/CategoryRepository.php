@@ -19,6 +19,12 @@ class CategoryRepository implements CategoryRepositoryInterface
        return Category::all();
     }
 
+    public function GetOrder()
+    {
+       return Category::orderBy("rank", 'ASC')->get();
+    }
+
+
     public function latest(int $id):array
     {  
   

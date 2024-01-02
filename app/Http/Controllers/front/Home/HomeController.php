@@ -4,15 +4,22 @@ namespace App\Http\Controllers\front\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Repositories\Interfaces\CategoryRepositoryInterface;
 class HomeController extends Controller
 {
+    private CategoryRepositoryInterface $CategoryRepository;
     /**
      * Display a listing of the resource.
      */
+    public function __construct(CategoryRepositoryInterface $CategoryRepository)
+    {
+        $this->CategoryRepository = $CategoryRepository;
+    }
     public function index()
     {
-        return view('front.home.index');
+        
+        $Category = $this->CategoryRepository->GetOrder();
+        return view('front.home.index', compact('Category'));
     }
 
     /**

@@ -19,7 +19,7 @@ use App\Http\Controllers\admin\Article\CategoryController;
 */
 
 
-Route::group(['prefix'=>'Adminstration','middleware'=>['auth','IsAdmin']], function(){
+Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], function(){
 
     Route::get('/', [HomeController::class, 'index'])->name('admin.index');
     Route::get('/home', [HomeController::class, 'index'])->name('admin.home');

@@ -25,37 +25,6 @@ class SettingController extends Controller
         return view('dashboard.setting.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreSettingRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Setting $setting)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -73,7 +42,21 @@ class SettingController extends Controller
             'linkedin' => 'nullable|string|max:255',
         ];
         $validatedData = $request->validate($data);
-        $this->repository->update($id, $request->except('logo','favicon'));
+        $setting= $this->repository->update($id, $request->except('logo','favicon'));
+
+        if ($request->hasFile('logo')) {
+            $image = $setting->addMedia($request->file('logo'))
+                ->toMediaCollection('setting');
+            $image->save();
+        }
+
+        if ($request->hasFile('favicon')) {
+            $image = $setting->addMedia($request->file('favicon'))
+                ->toMediaCollection('setting');
+            $image->save();
+        }
+
+        $image->save();
         return redirect()->route('setting.index');
     }
 

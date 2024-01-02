@@ -5,6 +5,7 @@
       <a href="{{ (route ('home')) }}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="{{asset("front/assets/img/logo.png") }}" alt="">
+        {{-- <img src="{{asset("$setting->getFirstMediaUrl('logo'),") }}" alt=""> --}}
         <h1>{{ $setting->title }}</h1>
       </a>
 
@@ -17,6 +18,7 @@
 
           <li class="dropdown"><a href="#"><span>{{ __('front.Tracks') }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
+            {{ dd($Category)}}
               <li><a href="#">Drop Down 1</a></li>
               <li><a href="#">Drop Down 1</a></li>
               <li><a href="#">Drop Down 2</a></li>

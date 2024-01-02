@@ -10,6 +10,8 @@ interface CategoryRepositoryInterface
 {
     public function all();
     
+    public function GetOrder();
+    
     public function latest(int $id):array;
 
     public function getbyid(int $id): Category;

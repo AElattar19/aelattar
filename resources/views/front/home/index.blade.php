@@ -2,7 +2,7 @@
 
 @section('main')
 <main id="main">
-
+{{ dd($Category)}}
 
     <!-- ======= Featured Services Section ======= -->
 
