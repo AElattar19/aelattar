@@ -5,21 +5,25 @@ namespace App\Http\Controllers\front\Home;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use App\Repositories\Interfaces\TrackRepositoryInterface;
 class HomeController extends Controller
 {
-    private CategoryRepositoryInterface $CategoryRepository;
+    private CategoryRepositoryInterface $CategoryRepository; 
+    private TrackRepositoryInterface $TrackRepository
     /**
      * Display a listing of the resource.
      */
-    public function __construct(CategoryRepositoryInterface $CategoryRepository)
+    public function __construct(CategoryRepositoryInterface $CategoryRepository , TrackRepositoryInterface $TrackRepository)
     {
         $this->CategoryRepository = $CategoryRepository;
+        $this->TrackRepository = $TrackRepository;
     }
     public function index()
     {
         
         $Category = $this->CategoryRepository->GetOrder();
-        return view('front.home.index', compact('Category'));
+        $Tracks = $this->TrackRepository->GetOrder();
+        return view('front.home.index', compact('Category','Tracks'));
     }
 
     /**

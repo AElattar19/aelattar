@@ -25,6 +25,12 @@ class TrackRepository implements TrackRepositoryInterface
        return Track::latest()->limit($id)->get()->toArray();
     }    
 
+    public function GetOrder()
+    {
+       return Track::orderBy("rank", 'ASC')->get();
+    }
+
+
     public function getbyid(int $id):Track
     {
         return Track::find($id);

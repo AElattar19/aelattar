@@ -10,6 +10,8 @@ interface TrackRepositoryInterface
 {
     public function all():array;
     
+    public function GetOrder();
+    
     public function latest(int $id):array;
 
     public function getbyid(int $id): Track;

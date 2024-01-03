@@ -24,45 +24,13 @@ class CategoryController extends Controller
         $this->repository = $repository;
     }
 
-    public function index(Request $request)
+    public function index ($id, $slug)
     {
 
        
-        if ($request->ajax()) {
-            
-
-                 $categories = $this->repository->all();
-                 return DataTables::of($categories)
-                    ->addIndexColumn()
-                    ->addColumn('checkbox', function ($row) {
-                        return '<input type="checkbox" id="'.$row->id.'" value="'.$row->id.'" name="ids[]"  />';
-                    })
-                    ->addColumn('article', function ($row) {
-                        $countNews = Article::where('category_id', $row->id)->count();                       
-                        return '<h6><a href="article/category/'. $row->id .'">'. $countNews .'</a></h6>';
-                        
-                    })
-                    ->addColumn('status', function ($row) {
-                        return $row->status == 1 ? "active" : "Inactive";
-                    })
-                    ->addColumn('action', function ($categories) {
-
-                        $html = '<a class="btn btn-info btn-sm" href="' . route('category.edit', $categories->id) . '">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                    </a> &nbsp;';
+        return view('front.home.index');
     
- 
-    
-                        return $html;
-                    })
-                    ->rawColumns(['checkbox','article','status','action'])
-                    ->make(true);
         }
-
-        return view('dashboard.cat.index');
-    
-}
 
     /**
      * Show the form for creating a new resource.
