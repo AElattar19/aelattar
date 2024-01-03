@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\Home\HomeController;
 use App\Http\Controllers\admin\admin\AdminController;
+use App\Http\Controllers\admin\Course\TrackController;
 use App\Http\Controllers\admin\Article\ArticleController;
 use App\Http\Controllers\admin\Setting\SettingController;
 use App\Http\Controllers\admin\Article\CategoryController;
@@ -35,7 +36,7 @@ Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], func
         'category' => CategoryController::class,
         'article' => ArticleController::class,
         'setting' => SettingController::class,
-
+        'track' => TrackController::class,
 
     ]);
 });
