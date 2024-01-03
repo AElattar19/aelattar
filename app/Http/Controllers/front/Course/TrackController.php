@@ -5,22 +5,28 @@ use App\Http\Controllers\Controller;
 use App\Models\Track;
 use App\Http\Requests\StoreTrackRequest;
 use App\Http\Requests\UpdateTrackRequest;
+use App\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Repositories\Interfaces\TrackRepositoryInterface;
 
 class TrackController extends Controller
 {
-    private TrackRepositoryInterface $repository;
+    private CategoryRepositoryInterface $CategoryRepository; 
+    private TrackRepositoryInterface $TrackRepository;
 
     /**
      * Display a listing of the resource.
      */
-    public function __construct(TrackRepositoryInterface $repository)
+    public function __construct(CategoryRepositoryInterface $CategoryRepository, TrackRepositoryInterface $TrackRepository)
     {
-        $this->repository = $repository;
+        $this->CategoryRepository = $CategoryRepository;
+        $this->TrackRepository = $TrackRepository;
     }
-    public function index()
+    public function index($slug)
     {
-        //
+        $Category = $this->CategoryRepository->GetOrder();
+        $Tracks = $this->TrackRepository->GetOrder();
+        $data = $this->TrackRepository->getbySlug($slug);
+        return view('front.library.index', compact('Category','Tracks','data'));
     }
 
     /**

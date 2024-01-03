@@ -13,8 +13,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <span>{{ __('front.Category') }}</span>
-          <h2>{{ __('front.Category') }}</h2>
+          <span>{{ __('front.Tracks') }}</span>
+          <h2>{{ __('front.Tracks') }}</h2>
 
         </div>
 

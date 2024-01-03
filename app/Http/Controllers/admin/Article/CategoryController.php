@@ -51,7 +51,17 @@ class CategoryController extends Controller
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                     </a> &nbsp;';
-    
+
+                        $html .= '<form action="' . route('category.destroy', $categories->id) . '"
+                                    method="post" style="display: inline-block;">
+                                  ' . method_field('delete') . '
+                                   ' . csrf_field() . '
+                                  <button type="submit"
+                                          class="btn  modal-effect btn btn-sm btn-danger">
+                                      <i class="fas fa-trash">
+                                      </i>
+                                  </button>
+                              </form>';    
  
     
                         return $html;
@@ -121,9 +131,11 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(string $id)
     {
-        //
+        $this->repository->delete($id);
+        session()->flash('edit');
+        return redirect()->route('category.index');
     }
 
     public function massDelete(Request $request)

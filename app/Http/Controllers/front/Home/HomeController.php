@@ -9,11 +9,11 @@ use App\Repositories\Interfaces\TrackRepositoryInterface;
 class HomeController extends Controller
 {
     private CategoryRepositoryInterface $CategoryRepository; 
-    private TrackRepositoryInterface $TrackRepository
+    private TrackRepositoryInterface $TrackRepository;
     /**
      * Display a listing of the resource.
      */
-    public function __construct(CategoryRepositoryInterface $CategoryRepository , TrackRepositoryInterface $TrackRepository)
+    public function __construct(CategoryRepositoryInterface $CategoryRepository, TrackRepositoryInterface $TrackRepository)
     {
         $this->CategoryRepository = $CategoryRepository;
         $this->TrackRepository = $TrackRepository;
@@ -29,9 +29,11 @@ class HomeController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function contact()
     {
-        //
+        $Category = $this->CategoryRepository->GetOrder();
+        $Tracks = $this->TrackRepository->GetOrder();
+        return view('front.contact.index', compact('Category','Tracks'));
     }
 
     /**

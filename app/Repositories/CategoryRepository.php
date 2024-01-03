@@ -36,6 +36,11 @@ class CategoryRepository implements CategoryRepositoryInterface
         return Category::find($id);
     }
 
+    public function getbySlug($slug):Category
+    {
+        return Category::where("slug", $slug)->first();
+    }
+
     public function create($request): Category
     {
         return Category::create($request);

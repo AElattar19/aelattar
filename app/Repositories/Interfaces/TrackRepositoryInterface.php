@@ -14,6 +14,8 @@ interface TrackRepositoryInterface
     
     public function latest(int $id):array;
 
+    public function getbySlug($slug);
+
     public function getbyid(int $id): Track;
 
     public function create($request): Track;

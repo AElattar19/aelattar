@@ -8,59 +8,40 @@ use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use App\Models\Article;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use App\Repositories\Interfaces\TrackRepositoryInterface;
 
 
 class CategoryController extends Controller
 {
-    private CategoryRepositoryInterface $repository;
+    private CategoryRepositoryInterface $CategoryRepository; 
+    private TrackRepositoryInterface $TrackRepository;
 
     /**
      * Display a listing of the resource.
      */
-    public function __construct(CategoryRepositoryInterface $repository)
+    public function __construct(CategoryRepositoryInterface $CategoryRepository, TrackRepositoryInterface $TrackRepository)
     {
-        $this->repository = $repository;
+        $this->CategoryRepository = $CategoryRepository;
+        $this->TrackRepository = $TrackRepository;
     }
-
-    public function index ($id, $slug)
+    public function index ($slug)
     {
-
-       
-        return view('front.home.index');
-    
-        }
+        $Category = $this->CategoryRepository->GetOrder();
+        $Tracks = $this->TrackRepository->GetOrder();
+        $data = $this->CategoryRepository->getbySlug($slug);
+        return view('front.library.index', compact('Category','Tracks','data'));
+   }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('dashboard.cat.create');
-    }
+
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $data = [
-            'title' => 'required|string|max:255',
-            'status' => 'required|integer',
-            'rank' => 'required|integer',
-        ];
 
-        $validatedData = $request->validate($data);
-        $post = $this->repository->create($request->except('image'));
-
-        $image = $post->addMedia($request->file('image'))
-                      ->toMediaCollection('category');
-        $image->save();
-
-        //Category::create($validatedData);
-        return redirect()->route('category.index'); 
-    }
 
     /**
      * Display the specified resource.
@@ -89,20 +70,5 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
-    {
-        //
-    }
 
-    public function massDelete(Request $request)
-    {
-        $admins = Category::whereIn('id', $request->get('ids'))->get();
-
-        $admins->each(function ($admin) {
-            $admin->delete();
-        });
-
-        return redirect()->route('category.index'); 
-
-    }
 }

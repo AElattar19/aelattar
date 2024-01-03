@@ -16,6 +16,8 @@ interface CategoryRepositoryInterface
 
     public function getbyid(int $id): Category;
 
+    public function getbySlug($slug):Category;
+
     public function create($request): Category;
 
     public function edit(int $id): Category;
