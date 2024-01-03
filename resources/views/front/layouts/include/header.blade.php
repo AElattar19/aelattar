@@ -18,18 +18,17 @@
 
           <li class="dropdown"><a href="#"><span>{{ __('front.Tracks') }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              @foreach ($Category as $data)
-                <li><a href="#">{{$data->title}}</a></li>
-              @endforeach
+              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="#">Drop Down 1</a></li>
+
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>{{ __('front.Category') }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              @foreach ($Category as $data)
+                <li><a href="#">{{$data->title}}</a></li>
+              @endforeach
             </ul>
           </li>
           <li><a href="about.html">{{ __('front.Contact') }}</a></li>

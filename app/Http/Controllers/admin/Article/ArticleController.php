@@ -32,10 +32,13 @@ class ArticleController extends Controller
             $menus = Article::query()->where('category_id', $id)->get();
             return DataTables::of($menus)
                ->addIndexColumn()
-               ->addColumn('type', function ($row) {
-                return $row->type == 1 ? "steps" : "essential service";
+               ->addColumn('title', function ($row) {
+                return $row->title;
                 })
-               ->addColumn('rank', function ($row) {
+                ->addColumn('catogary', function ($row) {
+                    return $row->catogary ;
+                    })
+               ->addColumn('active', function ($row) {
                 return $row->rank ;
                 })
 
@@ -60,7 +63,7 @@ class ArticleController extends Controller
 
                     return $html;
                 })
-                ->rawColumns(['news','catogary','active','action'])
+                ->rawColumns(['title','catogary','active','action'])
                 ->make(true);
     }
     

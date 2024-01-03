@@ -55,14 +55,7 @@
                                                             <input class="form-control" id="Text input with radiobox" type="text" name="title" value="{{ $data->title }}"  required>
                                                         </div>
 
-                                                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
-                                                            <p class="mg-b-10 ">logo</p>
-                                                            <input class="form-control" type="file" name="logo"  >
-                                                        </div>
-                                                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
-                                                            <p class="mg-b-10 ">favicon</p>
-                                                            <input class="form-control" type="file" name="favicon"  >
-                                                        </div>
+
 
                                                         <div class="col-lg-12 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10 required">md</p>
@@ -130,6 +123,28 @@
                                 </div><input aria-describedby="basic-addon1" name="linkedin" class="form-control" value="{{ $data->linkedin }}" type="text">
                             </div><!-- input-group -->
                         </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-xl-12 col-xs-12 col-sm-12">
+            <div class="card" id="basic-alert">
+                <div class="card-body">
+                    <div class="main-content-label mg-b-5">
+                        Input Groups
+                    </div>
+                    <div class="row row-sm">
+                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
+                            <p class="mg-b-10 ">logo</p>
+                            <input class="form-control" type="file" name="logo"  >
+                        </div>
+                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
+                            <p class="mg-b-10 ">favicon</p>
+                            <input class="form-control" type="file" name="favicon"  >
+                        </div>
+                     
                     </div>
 
                 </div>
