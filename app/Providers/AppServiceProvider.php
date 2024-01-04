@@ -45,8 +45,19 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         view()->composer('*', function ($view) {
             $settingRepository = app()->make(SettingRepository::class);
+            $CategoryRepository = app()->make(CategoryRepository::class);
+            $TrackRepository = app()->make(TrackRepository::class);
+
             $setting = $settingRepository->getLatest();
-            $view->with('setting', $setting);
+            $Category = $CategoryRepository->GetOrder();
+            $Tracks = $TrackRepository->GetOrder();
+
+            $view->with([
+                'setting' => $setting,
+                'Category' => $Category,
+                'Tracks' => $Tracks,
+            ]);
+            
         });
 
     }

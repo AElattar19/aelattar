@@ -11,7 +11,7 @@ interface TrackRepositoryInterface
     public function all();
     
     public function GetOrder();
-    
+
     public function latest(int $id):array;
 
     public function getbySlug($slug);

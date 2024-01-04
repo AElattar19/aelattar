@@ -9,18 +9,21 @@ use Yajra\DataTables\DataTables;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Repositories\Interfaces\CourseRepositoryInterface;
+use App\Repositories\Interfaces\TrackRepositoryInterface;
 
 
 class CourseController extends Controller
 {
     private CourseRepositoryInterface $repository;
-
+    private TrackRepositoryInterface $TrackRepository;
     /**
      * Display a listing of the resource.
      */
-    public function __construct(CourseRepositoryInterface $repository)
+    public function __construct(CourseRepositoryInterface $repository, TrackRepositoryInterface $TrackRepository)
     {
         $this->repository = $repository;
+        $this->TrackRepository = $TrackRepository;
+      
     }
     public function track (Request $request, $id)
     {
@@ -82,17 +85,33 @@ class CourseController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        return view('dashboard.course.create');
+        $tracks = $this->TrackRepository->getbyid($id);
+        return view('dashboard.course.create', compact(['id', 'tracks']));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCourseRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = [
+            'tracks_id'=>['required', 'integer'],
+            'title' => 'required|string|max:255',
+            'status' => 'required|integer',
+            'rank' => 'required|integer',
+        ];
+
+        $validatedData = $request->validate($data);
+        $post = $this->repository->create($request->except('image'));
+
+        $image = $post->addMedia($request->file('image'))
+                      ->toMediaCollection('course');
+        $image->save();
+
+        //Category::create($validatedData);
+        return redirect()->route('SubTrack', $request->tracks_id);
     }
 
     /**

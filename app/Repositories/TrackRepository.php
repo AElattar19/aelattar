@@ -25,6 +25,8 @@ class TrackRepository implements TrackRepositoryInterface
        return Track::latest()->limit($id)->get()->toArray();
     }    
 
+  
+
     public function getbySlug($slug)
     {
         return Track::where("slug", $slug)->first();

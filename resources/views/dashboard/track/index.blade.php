@@ -44,7 +44,7 @@
                             <th>checkbox</th>
                             <th>title</th>
                             <th>course</th>
-                            <th>course</th>
+                            <th>lesson</th>
                             <th>status</th>
                             <th width="150px">Action</th>
                         </tr>
@@ -91,7 +91,7 @@
               {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
               {data: 'title', name: 'title'},
               {data: 'course', name: 'course'},
-              {data: 'lession', name: 'lession'},
+              {data: 'lesson', name: 'lesson'},
               {data: 'status', name: 'status'},
               {data: 'action', name: 'action',  orderable: true,searchable: true }
           ]

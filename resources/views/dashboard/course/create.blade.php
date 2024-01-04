@@ -18,7 +18,8 @@
     <!-- breadcrumb -->
 
     <!-- row -->
-    <form method="post" enctype="multipart/form-data" action="{{ route('track.store') }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('courses.store') }}">
+        <input type="hidden" name="tracks_id" value="{{ $id }}">
 
     <div class="row row-sm">
         <!-- Col -->

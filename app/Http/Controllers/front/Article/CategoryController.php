@@ -27,10 +27,9 @@ class CategoryController extends Controller
     }
     public function index ($slug)
     {
-        $Category = $this->CategoryRepository->GetOrder();
-        $Tracks = $this->TrackRepository->GetOrder();
+
         $data = $this->CategoryRepository->getbySlug($slug);
-        return view('front.library.index', compact('Category','Tracks','data'));
+        return view('front.library.index', compact('data'));
    }
 
     /**

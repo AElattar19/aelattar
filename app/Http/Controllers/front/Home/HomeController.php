@@ -23,7 +23,7 @@ class HomeController extends Controller
         
         $Category = $this->CategoryRepository->GetOrder();
         $Tracks = $this->TrackRepository->GetOrder();
-        return view('front.home.index', compact('Category','Tracks'));
+        return view('front.home.index');
     }
 
     /**
@@ -31,9 +31,8 @@ class HomeController extends Controller
      */
     public function contact()
     {
-        $Category = $this->CategoryRepository->GetOrder();
-        $Tracks = $this->TrackRepository->GetOrder();
-        return view('front.contact.index', compact('Category','Tracks'));
+
+        return view('front.contact.index');
     }
 
     /**
