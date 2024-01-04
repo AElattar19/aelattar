@@ -34,7 +34,15 @@ class TrackController extends Controller
                     ->addColumn('checkbox', function ($row) {
                         return '<input type="checkbox" id="'.$row->id.'" value="'.$row->id.'" name="ids[]"  />';
                     })
-                    ->addColumn('track', function ($row) {
+                    ->addColumn('title', function ($row) {
+                        return $row->title;
+                    })
+                    ->addColumn('course', function ($row) {
+                        $countNews = Course::where('tracks_id', $row->id)->count();                       
+                        return '<h6><a href="track/courses/'. $row->id .'">'. $countNews .'</a></h6>';
+                        
+                    })
+                    ->addColumn('lession', function ($row) {
                         $countNews = Course::where('tracks_id', $row->id)->count();                       
                         return '<h6><a href="Course/tracks/'. $row->id .'">'. $countNews .'</a></h6>';
                         
@@ -63,7 +71,7 @@ class TrackController extends Controller
     
                         return $html;
                     })
-                    ->rawColumns(['checkbox','track','status','action'])
+                    ->rawColumns(['checkbox','title','course','lession','status','action'])
                     ->make(true);
         }
 

@@ -14,9 +14,9 @@ class TrackRepository implements TrackRepositoryInterface
      */
     protected $model;
 
-    public function all():array
+    public function all()
     {
-       return Track::all()->toArray();
+        return Track::all();
     }
 
     public function latest(int $id):array

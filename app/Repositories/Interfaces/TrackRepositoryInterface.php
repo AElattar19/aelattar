@@ -8,7 +8,7 @@ use App\Models\Track;
 
 interface TrackRepositoryInterface
 {
-    public function all():array;
+    public function all();
     
     public function GetOrder();
     

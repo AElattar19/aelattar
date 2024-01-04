@@ -9,6 +9,8 @@ use App\Models\Course;
 interface CourseRepositoryInterface
 {
     public function all():array;
+
+    public function allById(int $id):array;
     
     public function latest(int $id):array;
 

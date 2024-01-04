@@ -23,4 +23,5 @@ Route::get('/library/{slug}', [CategoryController::class, 'index'] )->name('Cate
 Route::get('/Track/{slug}', [TrackController::class, 'index'] )->name('TracksHome');
 Route::get('/ContactUs', [HomeController::class, 'contact'] )->name('ContactUs');
 
+
 require __DIR__.'/auth.php';

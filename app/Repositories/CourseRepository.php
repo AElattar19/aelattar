@@ -19,6 +19,12 @@ class CourseRepository implements CourseRepositoryInterface
        return Course::all()->toArray();
     }
 
+    public function allById(int $id):array
+    {
+       return Course::where("tracks_id", $id)->get();
+    }
+
+
     public function latest(int $id):array
     {  
   

@@ -30,7 +30,7 @@
             <div class="card-header">
                 <h3 class="card-title">{{__('admin.all_admins')}}</h3>
                 <div class="card-tools">
-                    <a href="{{  route('track.create') }}" class="btn btn-primary create add-permission">
+                    <a href="{{  route('CreateNewCourse', $id) }}" class="btn btn-primary create add-permission">
                         <i class="ti-plus"></i> {{__('admin.NewsCatogery')}}
                     </a>
  
@@ -86,7 +86,7 @@
           order:[
             ['0', 'ASC']
           ],
-          ajax: "{{ route('track.index') }}",
+          ajax: "{{ route('SubTrack', $id) }}",
           columns: [
               {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
               {data: 'title', name: 'title'},
