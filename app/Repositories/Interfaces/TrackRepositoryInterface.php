@@ -11,6 +11,12 @@ interface TrackRepositoryInterface
     public function all();
 
     public function GetHome();
+
+    public function GetMaster();
+
+    public function GetParent(int $id);
+
+    public function CountSub(int $id);
     
     public function Menu();
 

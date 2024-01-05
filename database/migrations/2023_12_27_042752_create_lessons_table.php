@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('link');
             $table->integer('status')->default(0);
             
-            $table->bigInteger('courses_id')->unsigned();
-            $table->foreign('courses_id')
+            $table->bigInteger('tracks_id')->unsigned();
+            $table->foreign('tracks_id')
                 ->references('id')
-                ->on('courses')
+                ->on('tracks')
                 ->onDelete('cascade');
             $table->integer('rank');
             $table->timestamps();

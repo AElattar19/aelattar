@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('title');
+            $table->integer('parent')->default(0);
             $table->integer('status')->default(0);
             $table->integer('rank');
             $table->timestamps();

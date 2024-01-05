@@ -8,6 +8,7 @@ use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Track extends Model implements HasMedia
@@ -23,9 +24,9 @@ class Track extends Model implements HasMedia
             ->usingSeparator('-');
     }
 
-    public function Courses()
+    public function Courses(): HasMany
     {
-        return $this->hasMany(Course::class, 'tracks_id');
+        return $this->hasMany(self::class, 'parent');
     }
 }
 

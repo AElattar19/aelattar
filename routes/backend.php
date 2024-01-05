@@ -30,7 +30,7 @@ Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], func
     Route::post('category/mass', [CategoryController::class, 'massDelete'] )->name('category.massDelete');
     Route::get('article/category/{id}', [ArticleController::class, 'index'] )->name('SubOurService');
     Route::get('/article/category/create/{id}', [ArticleController::class, 'create'] )->name('CreateNewArticle');
-    Route::get('/track/courses/{id}', [CourseController::class, 'track'] )->name('SubTrack');
+    Route::get('/track/courses/{id}', [TrackController::class, 'track'] )->name('SubTrack');
     Route::get('/track/courses/create/{id}', [CourseController::class, 'create'] )->name('CreateNewCourse');
 
 
@@ -40,7 +40,7 @@ Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], func
         'article' => ArticleController::class,
         'setting' => SettingController::class,
         'track' => TrackController::class,
-        'courses' => CourseController::class,
+       // 'courses' => CourseController::class,
 
     ]);
 });

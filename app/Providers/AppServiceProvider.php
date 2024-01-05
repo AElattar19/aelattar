@@ -50,7 +50,7 @@ class AppServiceProvider extends ServiceProvider
 
             $setting = $settingRepository->getLatest();
             $MenuCategory = $CategoryRepository->Menu();
-            $MenuTracks = $TrackRepository->Menu();
+            $MenuTracks = $TrackRepository->GetMaster();
 
             $view->with([
                 'setting' => $setting,

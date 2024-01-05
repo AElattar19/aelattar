@@ -28,7 +28,7 @@ class TrackController extends Controller
         if ($request->ajax()) {
             
 
-                 $track = $this->repository->all();
+                 $track = $this->repository->GetMaster();
                  return DataTables::of($track)
                     ->addIndexColumn()
                     ->addColumn('checkbox', function ($row) {
@@ -38,14 +38,15 @@ class TrackController extends Controller
                         return $row->title;
                     })
                     ->addColumn('course', function ($row) {
-                        $countNews = Course::where('tracks_id', $row->id)->count();                       
+                        $countNews = $this->repository->CountSub($row->id);
+                        //$countNews = Course::where('tracks_id', $row->id)->count();                       
                         return '<h6><a href="track/courses/'. $row->id .'">'. $countNews .'</a></h6>';
-                        
+                        //return $row->title; 
                     })
                     ->addColumn('lesson', function ($row) {
-                        $countNews = Course::where('tracks_id', $row->id)->count();                       
-                        return '<h6><a href="Course/tracks/'. $row->id .'">'. $countNews .'</a></h6>';
-                        
+                        // $countNews = Course::where('tracks_id', $row->id)->count();                       
+                        // return '<h6><a href="Course/tracks/'. $row->id .'">'. $countNews .'</a></h6>';
+                        return $row->title;
                     })
                     ->addColumn('status', function ($row) {
                         return $row->status == 1 ? "active" : "Inactive";
@@ -77,14 +78,69 @@ class TrackController extends Controller
 
         return view('dashboard.track.index');
     
-}
+    }
+
+
+public function track (Request $request, $id)
+{
+
+    if ($request->ajax()) {
+        
+
+             $track = $this->repository->GetParent($id);
+             return DataTables::of($track)
+                ->addIndexColumn()
+                ->addColumn('checkbox', function ($row) {
+                    return '<input type="checkbox" id="'.$row->id.'" value="'.$row->id.'" name="ids[]"  />';
+                })
+                ->addColumn('title', function ($row) {
+                    return $row->title;
+                })
+
+                ->addColumn('lesson', function ($row) {
+                    // $countNews = Course::where('tracks_id', $row->id)->count();                       
+                    // return '<h6><a href="Course/tracks/'. $row->id .'">'. $countNews .'</a></h6>';
+                    return $row->title;
+                })
+                ->addColumn('status', function ($row) {
+                    return $row->status == 1 ? "active" : "Inactive";
+                })
+                ->addColumn('action', function ($track) {
+
+                    $html = '<a class="btn btn-info btn-sm" href="' . route('track.edit', $track->id) . '">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                </a> &nbsp;';
+
+                    $html .= '<form action="' . route('track.destroy', $track->id) . '"
+                                method="post" style="display: inline-block;">
+                              ' . method_field('delete') . '
+                               ' . csrf_field() . '
+                              <button type="submit"
+                                      class="btn  modal-effect btn btn-sm btn-danger">
+                                  <i class="fas fa-trash">
+                                  </i>
+                              </button>
+                          </form>';    
+
+
+                    return $html;
+                })
+                ->rawColumns(['checkbox','title','lesson','status','action'])
+                ->make(true);
+    }
+
+    return view('dashboard.track.sub', compact('id'));
+
+    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('dashboard.track.create');
+        $Tracks = $this->repository->GetMaster();
+        return view('dashboard.track.create', compact('Tracks'));
     }
 
     /**
@@ -95,6 +151,7 @@ class TrackController extends Controller
         $data = [
             'title' => 'required|string|max:255',
             'status' => 'required|integer',
+            'parent' => 'required|integer',
             'rank' => 'required|integer',
         ];
 

@@ -24,6 +24,22 @@ class TrackRepository implements TrackRepositoryInterface
         return Track::orderBy("rank", 'ASC')->get();
     }
 
+    public function GetMaster()
+    {
+        return Track::whereNull('parent')->orWhere('parent', 0)->get();
+    }
+
+    public function GetParent(int $id)
+    {
+        return Track::where('parent', $id)->orderBy("rank", 'ASC')->get();
+    }
+
+
+    public function CountSub(int $id)
+    {
+        return Track::where('parent', $id)->count(); 
+    }
+
     public function latest(int $id):array
     {  
   

@@ -14,7 +14,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         DB::table('settings')->insert([
-            'title' => 'user',
+            'title' => 'A.Elattar',
             'des' => 'user@gmail.com',
             'mk' => 'user@gmail.com',
             'md' => 'user@gmail.com',

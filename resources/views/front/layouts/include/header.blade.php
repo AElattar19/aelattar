@@ -22,13 +22,13 @@
 
                 <li @if ($data->Courses->isNotEmpty()) class="dropdown" @endif>
                   <a href="{{ route('TracksHome',$data->slug) }}">
-                    <span>AE{{$data->title}}</span>  
+                    <span>{{$data->title}}</span>  
                     @if ($data->Courses->isNotEmpty()) <i class="bi bi-chevron-down dropdown-indicator"></i> @endif
                   </a>
                   @if ($data->Courses->isNotEmpty())
                     <ul>
                       @foreach ($data->Courses as $CourseData)
-                        <li><a href="{{ route('CoursesHome', $CourseData->slug) }}">{{ $CourseData->title }}</a></li>
+                        <li><a href="{{ route('TracksHome', $CourseData->slug) }}">{{ $CourseData->title }}</a></li>
                       @endforeach
                     </ul>
                   @endif

@@ -372,7 +372,7 @@ section {
   .navbar .dropdown ul {
     display: block;
     position: absolute;
-    right: 14px;
+    right: 0;
     top: calc(100% + 30px);
     margin: 0;
     padding:  0;
@@ -771,7 +771,7 @@ section {
 
 .services .card .card-img {
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   border-radius: 5px;
 }
 
@@ -783,7 +783,7 @@ section {
   font-weight: bold;
   font-size: 14px;
   margin-bottom: 5px;
-  padding: 10px;
+  padding: 0px 5px 0px 5px;
   text-transform: uppercase;
   text-align: justify;
 }
@@ -791,6 +791,7 @@ section {
 .services .card a {
   color: #001973;
   transition: 0.3;
+  line-height: 2;
 }
 
 .services .card a:hover {

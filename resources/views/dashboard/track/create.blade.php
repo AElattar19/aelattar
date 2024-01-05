@@ -50,24 +50,36 @@
                                         <div class="tab-content">
                                                 
                                                     <div class="row row-sm">
-                                                        <div class="col-lg-12 mg-b-20 mg-lg-b-0">
+                                                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10 required">title</p>
                                                             <input class="form-control" id="Text input with radiobox" type="text" name="title"  required>
                                                         </div>
 
-                                                        <div class="col-lg-12 mg-b-20 mg-lg-b-0">
+                                                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
+                                                            <p class="mg-b-10">Master Tracks</p>
+                                                            <select name="parent" id="" class="form-control">
+                                                                <option value="0">Main Track</option>
+                                                                @foreach ($Tracks as $Track)
+                                                                <option value="{{$Track->id}}">{{$Track->title}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-sm">
+
+                                                        <div class="col-lg-4 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10 required">title</p>
                                                             <input class="form-control" type="file" name="image"  required>
                                                         </div>
 
-                                                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
+                                                        <div class="col-lg-4 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10">status</p>
                                                             <select name="status" id="status" class="form-control" >
                                                                 <option value="1">publish</option>
                                                                 <option value="0">un publish</option>
                                                             </select>
                                                         </div>
-                                                        <div class="col-lg-6 mg-b-20 mg-lg-b-0">
+                                                        <div class="col-lg-4 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10">rank</p>
                                                             <select class="form-control select2-no-search" name="rank">
                                                                 @for ($i = 1; $i <= 30; $i++)
