@@ -13,6 +13,8 @@ interface CourseRepositoryInterface
     public function allById(int $id):array;
     
     public function latest(int $id):array;
+    
+    public function getbySlug($slug);
 
     public function getbyid(int $id): Course;
 

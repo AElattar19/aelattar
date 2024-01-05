@@ -20,4 +20,9 @@ class Course extends Model implements HasMedia
             ->saveSlugsTo('slug')
             ->usingSeparator('-');
     }
+
+    public function Track()
+    {
+        return $this->belongsTo(Track::class, 'tracks_id');
+    }
 }

@@ -21,9 +21,9 @@ class HomeController extends Controller
     public function index()
     {
         
-        $Category = $this->CategoryRepository->GetOrder();
-        $Tracks = $this->TrackRepository->GetOrder();
-        return view('front.home.index');
+        $HomeCategory = $this->CategoryRepository->GetHome();
+        $HomeTracks = $this->TrackRepository->GetHome();
+        return view('front.home.index', compact(['HomeTracks','HomeCategory']));
     }
 
     /**

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('title');
             $table->integer('status')->default(0);
             $table->integer('rank');
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

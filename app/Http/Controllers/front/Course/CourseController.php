@@ -1,27 +1,33 @@
 <?php
 
 namespace App\Http\Controllers\front\Course;
-use App\Http\Controllers\Controller;
-
 use App\Models\Course;
+
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
+use App\Repositories\Interfaces\TrackRepositoryInterface;
 use App\Repositories\Interfaces\CourseRepositoryInterface;
 
 class CourseController extends Controller
 {
-    private CourseRepositoryInterface $repository;
+    private CourseRepositoryInterface $CourseRepository;
+    private TrackRepositoryInterface $TrackRepository;
 
     /**
      * Display a listing of the resource.
      */
-    public function __construct(CourseRepositoryInterface $repository)
+    public function __construct(CourseRepositoryInterface $CourseRepository, TrackRepositoryInterface $TrackRepository)
     {
-        $this->repository = $repository;
+        $this->CourseRepository = $CourseRepository;
+        $this->TrackRepository = $TrackRepository;
     }
-    public function index()
+
+
+    public function index ($CourseSlug)
     {
-        //
+        $data = $this->CourseRepository->getbySlug($CourseSlug);
+        return view('front.library.index', compact('data'));
     }
 
     /**

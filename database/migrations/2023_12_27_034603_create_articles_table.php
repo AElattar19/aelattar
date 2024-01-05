@@ -25,8 +25,8 @@ return new class extends Migration
                 ->onDelete('cascade'); 
             $table->string('source')->nullable();
             $table->integer('rank');
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

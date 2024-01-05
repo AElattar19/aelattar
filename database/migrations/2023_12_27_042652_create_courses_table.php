@@ -23,8 +23,8 @@ return new class extends Migration
                 ->on('tracks')
                 ->onDelete('cascade');
             $table->integer('rank');    
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

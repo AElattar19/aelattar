@@ -49,13 +49,13 @@ class AppServiceProvider extends ServiceProvider
             $TrackRepository = app()->make(TrackRepository::class);
 
             $setting = $settingRepository->getLatest();
-            $Category = $CategoryRepository->GetOrder();
-            $Tracks = $TrackRepository->GetOrder();
+            $MenuCategory = $CategoryRepository->Menu();
+            $MenuTracks = $TrackRepository->Menu();
 
             $view->with([
                 'setting' => $setting,
-                'Category' => $Category,
-                'Tracks' => $Tracks,
+                'MenuCategory' => $MenuCategory,
+                'MenuTracks' => $MenuTracks,
             ]);
             
         });

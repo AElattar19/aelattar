@@ -19,6 +19,11 @@ class TrackRepository implements TrackRepositoryInterface
         return Track::all();
     }
 
+    public function GetHome()
+    {
+        return Track::orderBy("rank", 'ASC')->get();
+    }
+
     public function latest(int $id):array
     {  
   
@@ -33,9 +38,9 @@ class TrackRepository implements TrackRepositoryInterface
     }
 
 
-    public function GetOrder()
+    public function Menu()
     {
-       return Track::orderBy("rank", 'ASC')->get();
+       return Track::with('Courses')->orderBy("rank", 'ASC')->get();
     }
 
 

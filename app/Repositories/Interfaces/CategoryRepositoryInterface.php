@@ -9,8 +9,10 @@ use App\Models\Category;
 interface CategoryRepositoryInterface
 {
     public function all();
+
+    public function GetHome();
     
-    public function GetOrder();
+    public function Menu();
     
     public function latest(int $id):array;
 

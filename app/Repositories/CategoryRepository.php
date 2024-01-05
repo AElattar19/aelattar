@@ -19,7 +19,12 @@ class CategoryRepository implements CategoryRepositoryInterface
        return Category::all();
     }
 
-    public function GetOrder()
+    public function GetHome()
+    {
+        return Category::orderBy("rank", 'ASC')->get();
+    }
+
+    public function Menu()
     {
        return Category::orderBy("rank", 'ASC')->get();
     }

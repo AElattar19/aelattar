@@ -19,78 +19,16 @@
         </div>
 
         <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/storage-service.jpg") }}" alt="" class="img-fluid">
+          @foreach ($HomeTracks as $key => $data)
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ ($key+'1')*'200' }}">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{{ $data->getFirstMediaUrl('track') }}" alt="" class="img-fluid">
+                </div>
+                <h3><a href="{{ route('TracksHome',$data->slug) }}" class="stretched-link">{{ $data->title }}</a></h3>
               </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/logistics-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/cargo-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/trucking-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/packaging-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/warehousing-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/warehousing-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/warehousing-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
+            </div><!-- End Card Item -->
+          @endforeach
 
         </div>
 
@@ -122,77 +60,16 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/storage-service.jpg") }}" alt="" class="img-fluid">
+          @foreach ($HomeCategory as $key => $data)
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ ($key+'1')*'200' }}">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{{ $data->getFirstMediaUrl('category') }}" alt="" class="img-fluid">
+                </div>
+                <h3><a href="{{ route('CategoryHome',$data->slug) }}" class="stretched-link">{{ $data->title }}</a></h3>
               </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/logistics-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/cargo-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/trucking-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/packaging-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/warehousing-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/warehousing-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
-            <div class="card">
-              <div class="card-img">
-                <img src="{{asset("front/assets/img/warehousing-service.jpg") }}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">أهم النصائح لتحسين أداء موقعك عند إستدعاء المكتبات</a></h3>
-            </div>
-          </div><!-- End Card Item -->
+            </div><!-- End Card Item -->
+          @endforeach
 
         </div>
 

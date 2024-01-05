@@ -41,6 +41,13 @@ class CourseRepository implements CourseRepositoryInterface
         return Course::create($request);
     }
 
+    public function getbySlug($slug)
+    {
+        return Course::where("slug", $slug)->first();
+    }
+
+
+
     public function edit(int $id):Course
     {
         return $this->getbyid($id);

@@ -22,6 +22,11 @@ class Track extends Model implements HasMedia
             ->saveSlugsTo('slug')
             ->usingSeparator('-');
     }
+
+    public function Courses()
+    {
+        return $this->hasMany(Course::class, 'tracks_id');
+    }
 }
 
 
