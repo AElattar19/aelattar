@@ -3,10 +3,8 @@
 namespace App\Providers;
 
 
-use App\Models\Setting;
 use App\Repositories\UserRepository;
 use App\Repositories\TrackRepository;
-use App\Repositories\CourseRepository;
 use App\Repositories\LessonRepository;
 use Illuminate\Support\Facades\Schema;
 use App\Repositories\ArticleRepository;
@@ -15,7 +13,6 @@ use Illuminate\Support\ServiceProvider;
 use App\Repositories\CategoryRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\Interfaces\TrackRepositoryInterface;
-use App\Repositories\Interfaces\CourseRepositoryInterface;
 use App\Repositories\Interfaces\LessonRepositoryInterface;
 use App\Repositories\Interfaces\ArticleRepositoryInterface;
 use App\Repositories\Interfaces\SettingRepositoryInterface;
@@ -30,7 +27,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(ArticleRepositoryInterface::class, ArticleRepository::class);
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
-        $this->app->bind(CourseRepositoryInterface::class, CourseRepository::class);
         $this->app->bind(LessonRepositoryInterface::class, LessonRepository::class);
         $this->app->bind(SettingRepositoryInterface::class, SettingRepository::class);
         $this->app->bind(TrackRepositoryInterface::class, TrackRepository::class);

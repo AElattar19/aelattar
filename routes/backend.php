@@ -7,7 +7,6 @@ use App\Http\Controllers\admin\Course\TrackController;
 use App\Http\Controllers\admin\Article\ArticleController;
 use App\Http\Controllers\admin\Setting\SettingController;
 use App\Http\Controllers\admin\Article\CategoryController;
-use App\Http\Controllers\admin\Course\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +30,6 @@ Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], func
     Route::get('article/category/{id}', [ArticleController::class, 'index'] )->name('SubOurService');
     Route::get('/article/category/create/{id}', [ArticleController::class, 'create'] )->name('CreateNewArticle');
     Route::get('/track/courses/{id}', [TrackController::class, 'track'] )->name('SubTrack');
-    Route::get('/track/courses/create/{id}', [CourseController::class, 'create'] )->name('CreateNewCourse');
 
 
     Route::resources([
@@ -40,7 +38,6 @@ Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], func
         'article' => ArticleController::class,
         'setting' => SettingController::class,
         'track' => TrackController::class,
-       // 'courses' => CourseController::class,
 
     ]);
 });

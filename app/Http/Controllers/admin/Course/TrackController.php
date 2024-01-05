@@ -8,7 +8,6 @@ use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTrackRequest;
 use App\Http\Requests\UpdateTrackRequest;
-use App\Models\Course;
 use App\Repositories\Interfaces\TrackRepositoryInterface;
 
 class TrackController extends Controller
@@ -39,7 +38,7 @@ class TrackController extends Controller
                     })
                     ->addColumn('course', function ($row) {
                         $countNews = $this->repository->CountSub($row->id);
-                        //$countNews = Course::where('tracks_id', $row->id)->count();                       
+                                             
                         return '<h6><a href="track/courses/'. $row->id .'">'. $countNews .'</a></h6>';
                         //return $row->title; 
                     })

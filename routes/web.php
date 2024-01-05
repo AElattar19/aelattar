@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\front\Home\HomeController;
 use App\Http\Controllers\front\Course\TrackController;
 use App\Http\Controllers\front\Article\CategoryController;
-use App\Http\Controllers\front\Course\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +21,6 @@ use App\Http\Controllers\front\Course\CourseController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/library/{slug}', [CategoryController::class, 'index'] )->name('CategoryHome');
 Route::get('/Track/{slug}', [TrackController::class, 'index'] )->name('TracksHome');
-Route::get('/Track/Course/{CourseSlug}', [CourseController::class, 'index'] )->name('CoursesHome');
 Route::get('/ContactUs', [HomeController::class, 'contact'] )->name('ContactUs');
 
 
