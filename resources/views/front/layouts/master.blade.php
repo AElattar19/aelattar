@@ -10,7 +10,7 @@
   <meta content="{{ $setting->mk }}" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset("front/assets/img/favicon.png") }}" rel="icon">
+  <link href="{{ $setting->getFirstMediaUrl('favicon') }}" rel="icon">
   <link href="{{asset("front/assets/img/apple-touch-icon.png") }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -57,15 +57,8 @@
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                  <span data-purecounter-start="0" data-purecounter-end="{{ $TracksNum }}" data-purecounter-duration="1" class="purecounter"></span>
                   <p>{{ __('front.Tracks') }}</p>
-                </div>
-              </div><!-- End Stats Item -->
-
-              <div class="col-lg-3 col-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>{{ __('front.courses_num') }}</p>
                 </div>
               </div><!-- End Stats Item -->
 
@@ -73,6 +66,13 @@
                 <div class="stats-item text-center w-100 h-100">
                   <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
                   <p>{{ __('front.Videos_Num') }}</p>
+                </div>
+              </div><!-- End Stats Item -->
+
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span data-purecounter-start="0" data-purecounter-end="{{ $CategoriesNum }}" data-purecounter-duration="1" class="purecounter"></span>
+                  <p>{{ __('front.Catogery_num') }}</p>
                 </div>
               </div><!-- End Stats Item -->
 

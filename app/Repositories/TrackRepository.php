@@ -34,6 +34,10 @@ class TrackRepository implements TrackRepositoryInterface
         return Track::where('parent', $id)->orderBy("rank", 'ASC')->get();
     }
 
+    public function GetNum()
+    {
+        return Track::count(); 
+    }
 
     public function CountSub(int $id)
     {

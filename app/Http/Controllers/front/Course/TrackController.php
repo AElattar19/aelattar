@@ -22,7 +22,7 @@ class TrackController extends Controller
     {
 
         $data = $this->TrackRepository->getbySlug($slug);
-        return view('front.library.index', compact('data'));
+        return view('front.track.index', compact('data'));
     }
 
     /**

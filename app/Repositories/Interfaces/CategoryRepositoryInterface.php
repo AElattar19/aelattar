@@ -13,6 +13,8 @@ interface CategoryRepositoryInterface
     public function GetHome();
     
     public function Menu();
+
+    public function GetNum();
     
     public function latest(int $id):array;
 

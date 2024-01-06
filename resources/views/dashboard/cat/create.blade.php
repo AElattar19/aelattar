@@ -56,7 +56,7 @@
                                                         </div>
 
                                                         <div class="col-lg-12 mg-b-20 mg-lg-b-0">
-                                                            <p class="mg-b-10 required">title</p>
+                                                            <p class="mg-b-10 required">image</p>
                                                             <input class="form-control" type="file" name="image"  required>
                                                         </div>
 

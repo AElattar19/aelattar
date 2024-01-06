@@ -18,7 +18,7 @@
       <div class="container">
         <ol>
           <li><a href="{{ (route ('home')) }}">{{ __('front.Home') }}</a></li>
-          <li>{{ __('front.Category') }}</li>
+          <li>{{ __('front.Tracks') }}</li>
           <li>{{$data->title}}</li>
         </ol>
       </div>

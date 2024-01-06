@@ -19,6 +19,11 @@ class CategoryRepository implements CategoryRepositoryInterface
        return Category::all();
     }
 
+    public function GetNum()
+    {
+        return Category::count(); 
+    }
+
     public function GetHome()
     {
         return Category::orderBy("rank", 'ASC')->get();

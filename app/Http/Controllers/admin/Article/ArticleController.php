@@ -9,19 +9,25 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Repositories\Interfaces\ArticleRepositoryInterface;
+use App\Repositories\Interfaces\CategoryRepositoryInterface;
 
 
 
 class ArticleController extends Controller
 {
-    private ArticleRepositoryInterface $repository;
+    private ArticleRepositoryInterface $ArticleRepository;
+    private CategoryRepositoryInterface $CategoryRepository; 
 
     /**
      * Display a listing of the resource.
      */
-    public function __construct(ArticleRepositoryInterface $repository)
+    public function __construct(
+        CategoryRepositoryInterface $CategoryRepository, 
+        ArticleRepositoryInterface $ArticleRepository,
+        )
     {
-        $this->repository = $repository;
+        $this->ArticleRepository = $ArticleRepository;
+        $this->CategoryRepository = $CategoryRepository;
     }
 
     public function index (Request $request, $id)
@@ -75,17 +81,34 @@ class ArticleController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $categories = $this->CategoryRepository->all();
+        return view('dashboard.article.create', compact(['categories', 'id']));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreArticleRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = [
+            'title' => 'required|string|max:255',
+            'category_id' => 'required|integer',
+            'des' => 'required|string',
+            'status' => 'required|integer',
+            'youtube' => 'nullable|string',
+            'rank' => 'required|integer',
+        ];
+        $validatedData = $request->validate($data);
+        $post = $this->ArticleRepository->create($request->except('image'));
+
+        $image = $post->addMedia($request->file('image'))
+                      ->toMediaCollection('article');
+
+        return redirect()->route(['SubOurService', 'category_id']);
+
+
     }
 
     /**

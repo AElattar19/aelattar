@@ -23,7 +23,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('categories')
                 ->onDelete('cascade'); 
-            $table->string('source')->nullable();
+            $table->string('youtube')->nullable();
             $table->integer('rank');
             $table->timestamps();
             $table->softDeletes();

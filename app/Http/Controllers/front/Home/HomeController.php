@@ -13,7 +13,11 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function __construct(CategoryRepositoryInterface $CategoryRepository, TrackRepositoryInterface $TrackRepository)
+    public function __construct(
+        CategoryRepositoryInterface $CategoryRepository, 
+        TrackRepositoryInterface $TrackRepository,
+        
+        )
     {
         $this->CategoryRepository = $CategoryRepository;
         $this->TrackRepository = $TrackRepository;
@@ -22,8 +26,16 @@ class HomeController extends Controller
     {
         
         $HomeCategory = $this->CategoryRepository->GetHome();
-        $HomeTracks = $this->TrackRepository->GetHome();
-        return view('front.home.index', compact(['HomeTracks','HomeCategory']));
+        $HomeTracks = $this->TrackRepository->GetMaster();
+
+        $TracksNum = $this->TrackRepository->GetNum();
+        $CategoriesNum = $this->CategoryRepository->GetNum();
+
+        $LessonsNum = $this->TrackRepository->GetMaster();
+        $ArticlesNum = $this->TrackRepository->GetMaster();
+        return view('front.home.index', compact(
+            ['HomeTracks','HomeCategory','TracksNum','CategoriesNum','LessonsNum','ArticlesNum']
+        ));
     }
 
     /**

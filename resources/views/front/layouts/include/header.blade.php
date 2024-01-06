@@ -3,9 +3,8 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="{{ (route ('home')) }}" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="{{asset("front/assets/img/logo.png") }}" alt="">
-        {{-- <img src="{{ $setting->logo->getUrl() }}" alt=""> --}}
+
+        <img src="{{ $setting->getFirstMediaUrl('logo') }}" alt="">
         <h1>{{ $setting->title }}</h1>
       </a>
 

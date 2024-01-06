@@ -14,6 +14,8 @@ interface TrackRepositoryInterface
 
     public function GetMaster();
 
+    public function GetNum();
+
     public function GetParent(int $id);
 
     public function CountSub(int $id);
