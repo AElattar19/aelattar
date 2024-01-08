@@ -24,10 +24,21 @@ class Track extends Model implements HasMedia
             ->usingSeparator('-');
     }
 
-    public function Courses(): HasMany
+    public function Lessons(): HasMany
     {
-        return $this->hasMany(self::class, 'parent');
+       return $this->hasMany(Lesson::class, 'track_id');
     }
+
+    public function parents()
+    {
+        return $this->belongsTo(Self::class,'parent');
+    }
+
+    public function children(): HasMany
+    {
+        return $this->hasMany(Self::class,'parent');
+    }
+    
 }
 
 

@@ -37,7 +37,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+        <div class="col-lg-2 col-6 footer-links">
           <h4>Contact Us</h4>
           <p>
             A108 Adam Street <br>
@@ -54,12 +54,9 @@
 
     <div class="container mt-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>Logis</span></strong>. All Rights Reserved
+        &copy; جميع الحقوق <strong><span>2024 A.Elattar </span></strong>
       </div>
-      <div class="credits">
-      
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+
     </div>
 
   </footer>

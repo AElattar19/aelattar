@@ -1,4 +1,5 @@
   <!-- ======= Header ======= -->
+  {{-- {{  dd($MenuTracks) }} --}}
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -19,19 +20,20 @@
             <ul>
               @foreach ($MenuTracks as $data)
 
-                <li @if ($data->Courses->isNotEmpty()) class="dropdown" @endif>
+                <li @if(isset($data->children)) class="dropdown" @endif>
                   <a href="{{ route('TracksHome',$data->slug) }}">
                     <span>{{$data->title}}</span>  
-                    @if ($data->Courses->isNotEmpty()) <i class="bi bi-chevron-down dropdown-indicator"></i> @endif
+                    @if($data->children == false) <i class="bi bi-chevron-down dropdown-indicator"></i> @endif
                   </a>
-                  @if ($data->Courses->isNotEmpty())
-                    <ul>
-                      @foreach ($data->Courses as $CourseData)
-                        <li><a href="{{ route('TracksHome', $CourseData->slug) }}">{{ $CourseData->title }}</a></li>
-                      @endforeach
-                    </ul>
-                  @endif
+                    @if(isset($data->children))
+                      <ul>
+                        @foreach ($data->children as $CourseData)
+                          <li><a href="{{ route('TracksHome', $CourseData->slug) }}">{{ $CourseData->title }}</a></li>
+                        @endforeach
+                      </ul>
+                    @endif
                 </li>
+                
               @endforeach
 
             </ul>

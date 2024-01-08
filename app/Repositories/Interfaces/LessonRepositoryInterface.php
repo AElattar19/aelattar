@@ -8,7 +8,9 @@ use App\Models\Lesson;
 
 interface LessonRepositoryInterface
 {
-    public function all():array;
+    public function all(int $id):array;
+
+    public function home();
     
     public function latest(int $id):array;
 

@@ -15,15 +15,13 @@ use App\Repositories\Interfaces\TrackRepositoryInterface;
 class CategoryController extends Controller
 {
     private CategoryRepositoryInterface $CategoryRepository; 
-    private TrackRepositoryInterface $TrackRepository;
 
     /**
      * Display a listing of the resource.
      */
-    public function __construct(CategoryRepositoryInterface $CategoryRepository, TrackRepositoryInterface $TrackRepository)
+    public function __construct(CategoryRepositoryInterface $CategoryRepository)
     {
         $this->CategoryRepository = $CategoryRepository;
-        $this->TrackRepository = $TrackRepository;
     }
     public function index ($slug)
     {

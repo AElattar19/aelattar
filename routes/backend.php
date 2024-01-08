@@ -4,20 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\Home\HomeController;
 use App\Http\Controllers\admin\admin\AdminController;
 use App\Http\Controllers\admin\Course\TrackController;
+use App\Http\Controllers\admin\Course\LessonController;
 use App\Http\Controllers\admin\Article\ArticleController;
 use App\Http\Controllers\admin\Setting\SettingController;
 use App\Http\Controllers\admin\Article\CategoryController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 
 Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], function(){
@@ -30,7 +22,7 @@ Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], func
     Route::get('article/category/{id}', [ArticleController::class, 'index'] )->name('SubOurService');
     Route::get('/article/category/create/{id}', [ArticleController::class, 'create'] )->name('CreateNewArticle');
     Route::get('/track/courses/{id}', [TrackController::class, 'track'] )->name('SubTrack');
-
+    Route::get('/track/lesson/{id}', [LessonController::class, 'index'] )->name('TrackLessons');
 
     Route::resources([
         'admins' => AdminController::class,
@@ -38,7 +30,7 @@ Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], func
         'article' => ArticleController::class,
         'setting' => SettingController::class,
         'track' => TrackController::class,
-
+        'lesson' => LessonController::class,
     ]);
 });
 

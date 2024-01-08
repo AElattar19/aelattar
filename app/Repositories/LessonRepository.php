@@ -14,9 +14,14 @@ class LessonRepository implements LessonRepositoryInterface
      */
     protected $model;
 
-    public function all():array
+    public function all(int $id):array
     {
-       return Lesson::all()->toArray();
+       return Lesson::where("id", $id)->get();
+    }
+    
+    public function home()
+    {
+       return Lesson::where("home", 1)->where("status", 1)->inRandomOrder()->limit('8')->get();
     }
 
     public function latest(int $id):array

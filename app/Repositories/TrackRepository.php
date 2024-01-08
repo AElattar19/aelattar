@@ -26,7 +26,7 @@ class TrackRepository implements TrackRepositoryInterface
 
     public function GetMaster()
     {
-        return Track::whereNull('parent')->orWhere('parent', 0)->get();
+        return Track::Where('parent', 0)->get();
     }
 
     public function GetParent(int $id)
@@ -54,13 +54,13 @@ class TrackRepository implements TrackRepositoryInterface
 
     public function getbySlug($slug)
     {
-        return Track::where("slug", $slug)->first();
+        return Track::where("slug", $slug)->with('Lessons')->first();
     }
 
 
     public function Menu()
     {
-       return Track::with('Courses')->orderBy("rank", 'ASC')->get();
+       return Track::Where('parent', 0)->with('children')->orderBy("rank", 'ASC')->get();
     }
 
 

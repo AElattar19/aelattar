@@ -13,17 +13,18 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
             $table->string('title');
             $table->string('link');
+            $table->string('ytimg');
             $table->integer('status')->default(0);
             
-            $table->bigInteger('tracks_id')->unsigned();
-            $table->foreign('tracks_id')
+            $table->bigInteger('track_id')->unsigned();
+            $table->foreign('track_id')
                 ->references('id')
                 ->on('tracks')
                 ->onDelete('cascade');
             $table->integer('rank');
+            $table->integer('home')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

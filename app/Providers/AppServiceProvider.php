@@ -11,12 +11,14 @@ use App\Repositories\ArticleRepository;
 use App\Repositories\SettingRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\CategoryRepository;
+use App\Repositories\ContactUsRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\Interfaces\TrackRepositoryInterface;
 use App\Repositories\Interfaces\LessonRepositoryInterface;
 use App\Repositories\Interfaces\ArticleRepositoryInterface;
 use App\Repositories\Interfaces\SettingRepositoryInterface;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use App\Repositories\Interfaces\ContactUsRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SettingRepositoryInterface::class, SettingRepository::class);
         $this->app->bind(TrackRepositoryInterface::class, TrackRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(ContactUsRepositoryInterface::class, ContactUsRepository::class);
+
     }
 
     /**
@@ -46,7 +50,7 @@ class AppServiceProvider extends ServiceProvider
 
             $setting = $settingRepository->getLatest();
             $MenuCategory = $CategoryRepository->Menu();
-            $MenuTracks = $TrackRepository->GetMaster();
+            $MenuTracks = $TrackRepository->Menu();
 
             $view->with([
                 'setting' => $setting,

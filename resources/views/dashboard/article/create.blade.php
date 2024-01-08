@@ -2,7 +2,12 @@
 
 @section('body')
 
-
+<script src="https://cdn.tiny.cloud/1/pm5i3o7jtljwaj42udttctui6m1p0cn15mwdbbp77peod3zo/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: '#textarea#default'
+  });
+</script>
 <br />
 <div class="container-fluid">
 
@@ -65,9 +70,9 @@
                                                         </div>
 
 
-                                                        <div class="col-lg-12 mg-b-20 mg-lg-b-0 tinymce" style="margin-bottom: 10px">
-                                                            <p class="mg-b-10 required">description</p>
-                                                            <textarea class="form-control tinymce_textarea" style="z-index: 1" name="des" cols="35" rows="10"></textarea>
+                                                        <div class="col-lg-12 mg-b-20 mg-lg-b-0 " style="margin-bottom: 10px">
+                                                            <p class="mg-b-10 ">description</p>
+                                                            <textarea id="default" name="des" >Hello, World!</textarea>
                                                         </div>
 
                                                         <div class="col-lg-4 mg-b-20 mg-lg-b-0">

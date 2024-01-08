@@ -10,8 +10,12 @@ interface ArticleRepositoryInterface
 {
     public function all():array;
     
+    public function home();
+
     public function latest(int $id):array;
 
+    public function getbySlug($slug);
+    
     public function getbyid(int $id): Article;
 
     public function create($request): Article;

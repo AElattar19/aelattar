@@ -23,4 +23,10 @@ class Article extends Model implements HasMedia
             ->usingSeparator('-');
     }
 
+    public function Category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+
 }

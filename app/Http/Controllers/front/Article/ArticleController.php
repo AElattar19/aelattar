@@ -14,76 +14,26 @@ use App\Repositories\Interfaces\ArticleRepositoryInterface;
 
 class ArticleController extends Controller
 {
-    private ArticleRepositoryInterface $repository;
+    private ArticleRepositoryInterface $ArticleRepository;
 
     /**
      * Display a listing of the resource.
      */
-    public function __construct(ArticleRepositoryInterface $repository)
+    public function __construct(ArticleRepositoryInterface $ArticleRepository)
     {
-        $this->repository = $repository;
+        $this->ArticleRepository = $ArticleRepository;
     }
 
-    public function index (Request $request, $id)
+    public function index($slug)
     {
 
-        if ($request->ajax()) {
-
-            $menus = Article::query()->where('category_id', $id)->get();
-            return DataTables::of($menus)
-               ->addIndexColumn()
-               ->addColumn('type', function ($row) {
-                return $row->type == 1 ? "steps" : "essential service";
-                })
-               ->addColumn('rank', function ($row) {
-                return $row->rank ;
-                })
-
-               ->addColumn('action', function ($menus) {
-
-                   $html = '<a class="btn btn-info btn-sm" href="' . route('news.edit', $menus->id) . '">
-                                   <i class="fas fa-pencil-alt">
-                                   </i>
-                               </a> &nbsp;';
-
-                       $html .= '<form action="' . route('news.destroy', $menus->id) . '"
-                                         method="post" style="display: inline-block;">
-                                       ' . method_field('delete') . '
-                                        ' . csrf_field() . '
-                                       <button type="submit"
-                                               class="btn  modal-effect btn btn-sm btn-danger">
-                                           <i class="fas fa-trash">
-                                           </i>
-                                       </button>
-                                   </form>';
-
-
-                    return $html;
-                })
-                ->rawColumns(['news','catogary','active','action'])
-                ->make(true);
+        $data = $this->ArticleRepository->getbySlug($slug);
+        return view('front.article.index', compact('data'));
     }
-    
-    return view('dashboard.article.index', compact('id'));
-        }
 
    
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreArticleRequest $request)
-    {
-        //
-    }
+  
 
     /**
      * Display the specified resource.

@@ -40,7 +40,6 @@ class CategoryController extends Controller
                     ->addColumn('article', function ($row) {
                         $countNews = Article::where('category_id', $row->id)->count();                       
                         return '<h6><a href="article/category/'. $row->id .'">'. $countNews .'</a></h6>';
-                        
                     })
                     ->addColumn('status', function ($row) {
                         return $row->status == 1 ? "active" : "Inactive";

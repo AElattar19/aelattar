@@ -25,6 +25,7 @@ return new class extends Migration
                 ->onDelete('cascade'); 
             $table->string('youtube')->nullable();
             $table->integer('rank');
+            $table->integer('home')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

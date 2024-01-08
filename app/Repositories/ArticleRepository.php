@@ -19,6 +19,11 @@ class ArticleRepository implements ArticleRepositoryInterface
        return Article::all()->toArray();
     }
 
+    public function home()
+    {
+       return Article::where("home", 1)->where("status", 1)->inRandomOrder()->limit('8')->get();
+    }
+
     public function latest(int $id):array
     {  
   
@@ -29,6 +34,12 @@ class ArticleRepository implements ArticleRepositoryInterface
     {
         return Article::find($id);
     }
+
+    public function getbySlug($slug)
+    {
+        return Article::where("slug", $slug)->first();
+    }
+
 
     public function create($request): Article
     {

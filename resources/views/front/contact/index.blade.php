@@ -24,7 +24,7 @@
     </nav>
   </div><!-- End Breadcrumbs -->
 
-
+  @include('partials/_session')
 
   <!-- ======= Services Section ======= -->
   <section id="get-a-quote" class="get-a-quote">
@@ -34,54 +34,39 @@
         <div class="col-lg-5 quote-bg" style="background-image: url({{asset("front/assets/img/cta-bg.jpg") }});"></div>
 
         <div class="col-lg-7">
-          <form action="forms/quote.php" method="post" class="php-email-form">
-            <h3>Get a quote</h3>
-            <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero park flows.</p>
+          <form action="{{ route('ContactUsStore' )}}" method="post" class="php-email-form">
+            @csrf
             <div class="row gy-4">
 
-              <div class="col-md-6">
-                <input type="text" name="departure" class="form-control" placeholder="City of Departure" required>
-              </div>
-
-              <div class="col-md-6">
-                <input type="text" name="delivery" class="form-control" placeholder="Delivery City" required>
-              </div>
-
-              <div class="col-md-6">
-                <input type="text" name="weight" class="form-control" placeholder="Total Weight (kg)" required>
-              </div>
-
-              <div class="col-md-6">
-                <input type="text" name="dimensions" class="form-control" placeholder="Dimensions (cm)" required>
-              </div>
-
               <div class="col-lg-12">
-                <h4>Your Personal Details</h4>
+                <h4>من فضلك لا تتردد أبدا في الاتصال بنا. سواء للسؤال او الاستفسار او اي استفسار يدور في ذهنهم.</h4>
+              </div>
+
+              <div class="col-md-6">
+                <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="الأسم" required>
+              </div>
+
+              <div class="col-md-6 ">
+                <input type="email" class="form-control" value="{{old('name')}}" name="email" placeholder="البريد الالكتروني" required>
+              </div>
+              
+              <div class="col-md-6 ">
+                <input type="text" class="form-control" value="{{old('country')}}" name="country" placeholder="الدولة" required>
+              </div>
+
+              <div class="col-md-6">
+                <input type="text" class="form-control" value="{{old('phone')}}" name="phone" placeholder="الجوال" required>
               </div>
 
               <div class="col-md-12">
-                <input type="text" name="name" class="form-control" placeholder="Name" required>
-              </div>
-
-              <div class="col-md-12 ">
-                <input type="email" class="form-control" name="email" placeholder="Email" required>
-              </div>
-
-              <div class="col-md-12">
-                <input type="text" class="form-control" name="phone" placeholder="Phone" required>
-              </div>
-
-              <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                <textarea class="form-control" value="{{old('description')}}" name="description" rows="6" placeholder="من فضلك اكتب رسالتك...." required></textarea>
               </div>
 
               <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
+  
 
-                <button type="submit">Get a quote</button>
-              </div>
+                <button type="submit">إرسال</button>
+              
 
             </div>
           </form>

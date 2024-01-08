@@ -8,6 +8,7 @@ use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTrackRequest;
 use App\Http\Requests\UpdateTrackRequest;
+use App\Models\Lesson;
 use App\Repositories\Interfaces\TrackRepositoryInterface;
 
 class TrackController extends Controller
@@ -43,9 +44,8 @@ class TrackController extends Controller
                         //return $row->title; 
                     })
                     ->addColumn('lesson', function ($row) {
-                        // $countNews = Course::where('tracks_id', $row->id)->count();                       
-                        // return '<h6><a href="Course/tracks/'. $row->id .'">'. $countNews .'</a></h6>';
-                        return $row->title;
+                        $countNews = Lesson::where('track_id', $row->id)->count();                       
+                        return '<h6><a href="track/lesson/'. $row->id .'">'. $countNews .'</a></h6>';
                     })
                     ->addColumn('status', function ($row) {
                         return $row->status == 1 ? "active" : "Inactive";
@@ -95,11 +95,9 @@ public function track (Request $request, $id)
                 ->addColumn('title', function ($row) {
                     return $row->title;
                 })
-
                 ->addColumn('lesson', function ($row) {
-                    // $countNews = Course::where('tracks_id', $row->id)->count();                       
-                    // return '<h6><a href="Course/tracks/'. $row->id .'">'. $countNews .'</a></h6>';
-                    return $row->title;
+                    $countNews = Lesson::where('track_id', $row->id)->count();                       
+                    return '<h6><a href="track/lesson/'. $row->id .'">'. $countNews .'</a></h6>';
                 })
                 ->addColumn('status', function ($row) {
                     return $row->status == 1 ? "active" : "Inactive";
@@ -133,6 +131,7 @@ public function track (Request $request, $id)
 
     }
 
+   
     /**
      * Show the form for creating a new resource.
      */

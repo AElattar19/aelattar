@@ -2,25 +2,31 @@
 
 namespace App\Http\Controllers\front\Home;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use App\Http\Controllers\Controller;
 use App\Repositories\Interfaces\TrackRepositoryInterface;
+use App\Repositories\Interfaces\LessonRepositoryInterface;
+use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use App\Repositories\Interfaces\ArticleRepositoryInterface;
+
 class HomeController extends Controller
 {
     private CategoryRepositoryInterface $CategoryRepository; 
     private TrackRepositoryInterface $TrackRepository;
-    /**
-     * Display a listing of the resource.
-     */
+    private LessonRepositoryInterface $LessonRepository;
+    private ArticleRepositoryInterface $ArticleRepository;
+
     public function __construct(
         CategoryRepositoryInterface $CategoryRepository, 
         TrackRepositoryInterface $TrackRepository,
-        
+        LessonRepositoryInterface $LessonRepository,
+        ArticleRepositoryInterface $ArticleRepository
         )
     {
         $this->CategoryRepository = $CategoryRepository;
         $this->TrackRepository = $TrackRepository;
+        $this->LessonRepository = $LessonRepository;
+        $this->ArticleRepository = $ArticleRepository;
     }
     public function index()
     {
@@ -33,8 +39,11 @@ class HomeController extends Controller
 
         $LessonsNum = $this->TrackRepository->GetMaster();
         $ArticlesNum = $this->TrackRepository->GetMaster();
+
+        $LessonHome = $this->LessonRepository->home();
+        $ArticleHome = $this->ArticleRepository->home();
         return view('front.home.index', compact(
-            ['HomeTracks','HomeCategory','TracksNum','CategoriesNum','LessonsNum','ArticlesNum']
+            ['HomeTracks','HomeCategory','TracksNum','CategoriesNum','LessonsNum','ArticlesNum','LessonHome','ArticleHome']
         ));
     }
 

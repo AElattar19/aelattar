@@ -48,7 +48,7 @@ class CategoryRepository implements CategoryRepositoryInterface
 
     public function getbySlug($slug):Category
     {
-        return Category::where("slug", $slug)->first();
+        return Category::where("slug", $slug)->with('Articles')->first();
     }
 
     public function create($request): Category
