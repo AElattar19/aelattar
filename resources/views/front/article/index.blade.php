@@ -48,7 +48,7 @@
         </div>
 
         <div class="col-lg-8">
-          <p>{{$data->des}}</p>
+          <p>{!! $data->des !!}</p>
         </div>
 
       </div>
