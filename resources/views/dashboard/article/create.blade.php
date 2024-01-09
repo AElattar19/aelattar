@@ -1,13 +1,9 @@
 @extends('dashboard.layouts.master')
 
 @section('body')
+<script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
 
-<script src="https://cdn.tiny.cloud/1/pm5i3o7jtljwaj42udttctui6m1p0cn15mwdbbp77peod3zo/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-  tinymce.init({
-    selector: '#textarea#default'
-  });
-</script>
+
 <br />
 <div class="container-fluid">
 
@@ -72,7 +68,7 @@
 
                                                         <div class="col-lg-12 mg-b-20 mg-lg-b-0 " style="margin-bottom: 10px">
                                                             <p class="mg-b-10 ">description</p>
-                                                            <textarea id="default" name="des" >Hello, World!</textarea>
+                                                            <textarea class="form-control" id="editor" name="des" dir="rtl"></textarea>
                                                         </div>
 
                                                         <div class="col-lg-4 mg-b-20 mg-lg-b-0">
@@ -145,3 +141,18 @@
 </div>
 
 @endsection
+
+@push('scripts')
+
+<script language="javascript1.2" >
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        this.editor = new ClassicEditor('#editor', {
+        direction: 'rtl',
+});
+</script>
+@endpush
+

@@ -8,9 +8,7 @@ use App\Http\Controllers\admin\Course\LessonController;
 use App\Http\Controllers\admin\Article\ArticleController;
 use App\Http\Controllers\admin\Setting\SettingController;
 use App\Http\Controllers\admin\Article\CategoryController;
-
-
-
+use App\Http\Controllers\admin\Contact\ContactUsController;
 
 Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], function(){
 
@@ -31,6 +29,7 @@ Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], func
         'setting' => SettingController::class,
         'track' => TrackController::class,
         'lesson' => LessonController::class,
+        'ContactUs' => ContactUsController::class,
     ]);
 });
 
