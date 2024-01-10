@@ -1,8 +1,7 @@
 @extends('dashboard.layouts.master')
 
 @section('body')
-<script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
-
+    <script src="https://cdn.tiny.cloud/1/utzdmr6ehen8u9y8unqs7hznw31zs7vi1loaroclutaz6gp3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 <br />
 <div class="container-fluid">
@@ -62,13 +61,13 @@
 
                                                         <div class="col-lg-6 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10 required">title</p>
-                                                            <input class="form-control" id="Text input with radiobox" type="text" name="title"  required>
+                                                            <input class="form-control" id="Text input with radiobox" type="text" name="title" required>
                                                         </div>
 
 
                                                         <div class="col-lg-12 mg-b-20 mg-lg-b-0 " style="margin-bottom: 10px">
                                                             <p class="mg-b-10 ">description</p>
-                                                            <textarea class="form-control" id="editor" name="des" dir="rtl"></textarea>
+                                                            <textarea class="form-control" id="mytextarea" name="des" dir="rtl" ></textarea>
                                                         </div>
 
                                                         <div class="col-lg-4 mg-b-20 mg-lg-b-0">
@@ -145,14 +144,13 @@
 @push('scripts')
 
 <script language="javascript1.2" >
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-        this.editor = new ClassicEditor('#editor', {
-        direction: 'rtl',
-});
+
+        tinymce.init({
+          selector: '#mytextarea',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+  });
+
 </script>
 @endpush
 

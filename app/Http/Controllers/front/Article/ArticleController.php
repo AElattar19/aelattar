@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Repositories\Interfaces\ArticleRepositoryInterface;
+use Illuminate\Support\Facades\Html;
 
 
 

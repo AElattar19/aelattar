@@ -48,7 +48,7 @@
         </div>
 
         <div class="col-lg-8">
-          <p>{!! $data->des !!}</p>
+          <p> {!! nl2br($data->des) !!}</p>
         </div>
 
       </div>

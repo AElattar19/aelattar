@@ -169,33 +169,6 @@
 		<script src="{{asset('Dashboard/assets/js/jquery.vmap.sampledata.js') }}"></script>
 		
 		
-<script type="text/javascript" src="{{asset('tinymce/tinymce.min.js') }}"></script>
-<script>
-	// text editor tinymce
-	if ($(".tinymce textarea").length > 0) {
-		tinymce.init({
-			selector: ".tinymce_textarea",
-			theme: "modern",
-			height: 300,
-			content_style:
-				"body { background: #6A7A95; color: white; font-size: 14pt; font-family: Arial; }",
-			plugins: [
-				"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-				"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-				"save table contextmenu directionality emoticons template paste textcolor"
-			],
-			toolbar: "ltr rtl insertfile undo redo | fontsizeselect | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
-			style_formats: [
-				{title: 'Bold text', inline: 'b'},
-				{title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
-				{title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
-				{title: 'Span', inline: 'span', classes: 'example1'},
-				{title: 'Table styles'},
-				{title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
-			]
-		});
-	}
-</script>
 
 	</body>
 </html>
