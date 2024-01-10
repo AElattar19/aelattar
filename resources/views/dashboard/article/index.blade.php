@@ -41,8 +41,7 @@
                     <thead>
                         <tr>
                             <th>title</th>
-                            <th>catogary</th>
-                            <th>active</th>
+                            <th>rank</th>
                             <th width="150px">Action</th>
                         </tr>
                     </thead>
@@ -79,11 +78,10 @@
           order:[
             ['0', 'ASC']
           ],
-          ajax: "{{ route('article.index') }}",
+          ajax: "{{ route('ArticleIndex', $id) }}",
           columns: [
               {data: 'title', name: 'title'},
-              {data: 'catogary', name: 'catogary'},
-              {data: 'active', name: 'active'},
+              {data: 'rank', name: 'rank'},
               {data: 'action', name: 'action',  orderable: true,searchable: true }
           ]
       });

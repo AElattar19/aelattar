@@ -135,14 +135,15 @@ section {
 # Breadcrumbs
 --------------------------------------------------------------*/
 code{
-  background: rgba(14, 29, 52, 1);
-  color: #ffffff;
+  background: rgba(14, 29, 52, 1) !important;
+ 
   padding: 10px;
   border-radius: 5px;
   }
-  code p{
+  code span{
     padding: 0px 10px 0px 10px;
     margin-bottom: 2px;
+    color: #ffffff;
   }
   
 .breadcrumbs .page-header {

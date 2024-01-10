@@ -168,7 +168,16 @@
 		<script src="{{asset('Dashboard/assets/js/custom.js') }}"></script>
 		<script src="{{asset('Dashboard/assets/js/jquery.vmap.sampledata.js') }}"></script>
 		
-		
+	    <script src="https://cdn.tiny.cloud/1/utzdmr6ehen8u9y8unqs7hznw31zs7vi1loaroclutaz6gp3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		<script language="javascript1.2" >
+
+			tinymce.init({
+			  selector: '#mytextarea',
+		plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+		toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+	  });
+	
+	</script>
 
 	</body>
 </html>

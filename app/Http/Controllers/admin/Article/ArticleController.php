@@ -41,21 +41,19 @@ class ArticleController extends Controller
                ->addColumn('title', function ($row) {
                 return $row->title;
                 })
-                ->addColumn('catogary', function ($row) {
-                    return $row->catogary ;
-                    })
-               ->addColumn('active', function ($row) {
+
+               ->addColumn('rank', function ($row) {
                 return $row->rank ;
                 })
 
                ->addColumn('action', function ($menus) {
 
-                   $html = '<a class="btn btn-info btn-sm" href="' . route('news.edit', $menus->id) . '">
+                   $html = '<a class="btn btn-info btn-sm" href="' . route('article.edit', $menus->id) . '">
                                    <i class="fas fa-pencil-alt">
                                    </i>
                                </a> &nbsp;';
 
-                       $html .= '<form action="' . route('news.destroy', $menus->id) . '"
+                       $html .= '<form action="' . route('article.destroy', $menus->id) . '"
                                          method="post" style="display: inline-block;">
                                        ' . method_field('delete') . '
                                         ' . csrf_field() . '
@@ -69,7 +67,7 @@ class ArticleController extends Controller
 
                     return $html;
                 })
-                ->rawColumns(['title','catogary','active','action'])
+                ->rawColumns(['title','rank','action'])
                 ->make(true);
     }
     
@@ -122,9 +120,11 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Article $article)
+    public function edit(Request $request, $id)
     {
-        //
+        $categories = $this->CategoryRepository->all();
+        $data = $this->ArticleRepository->getbyid($id);
+        return view('dashboard.article.edit', compact(['categories', 'data']));
     }
 
     /**

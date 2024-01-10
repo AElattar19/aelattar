@@ -17,7 +17,7 @@ Route::group(['prefix'=>'Administration','middleware'=>['auth','IsAdmin']], func
     Route::get('/Profile', [HomeController::class, 'index'])->name('AdminProfile');
     Route::post('admins/mass', [AdminController::class, 'massDelete'] )->name('admin.massDelete');
     Route::post('category/mass', [CategoryController::class, 'massDelete'] )->name('category.massDelete');
-    Route::get('article/category/{id}', [ArticleController::class, 'index'] )->name('SubOurService');
+    Route::get('article/category/{id}', [ArticleController::class, 'index'] )->name('ArticleIndex');
     Route::get('/article/category/create/{id}', [ArticleController::class, 'create'] )->name('CreateNewArticle');
     Route::get('/track/courses/{id}', [TrackController::class, 'track'] )->name('SubTrack');
     Route::get('/track/lesson/{id}', [LessonController::class, 'index'] )->name('TrackLessons');
