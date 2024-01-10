@@ -14,7 +14,7 @@
 
         <div class="col-lg-8 col-6">
           <div class="copyright">
-            &copy; جميع الحقوق <strong><span>2024 A.Elattar.com </span></strong>
+            &copy; All Rights Reserved <span>2024 A.Elattar.com </span>
           </div>
         </div>
 
