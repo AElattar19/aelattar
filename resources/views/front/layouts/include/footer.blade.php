@@ -6,7 +6,6 @@
           <a href="{{ (route ('home')) }}" class="logo d-flex align-items-center">
             <span>{{ $setting->title }}</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
           <div class="social-links d-flex mt-4">
             <a href="https://www.github.com/{{ $setting->github }}" class="twitter" target="_blank"><i class="bi bi-github"></i></a>
             <a href="https://www.facebook.com/{{ $setting->facebook }}" class="facebook" target="_blank" ><i class="bi bi-facebook"></i></a>

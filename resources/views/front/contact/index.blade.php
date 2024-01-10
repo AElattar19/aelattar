@@ -2,7 +2,7 @@
 
 @section('main')
 <main id="main">
-
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <!-- ======= Breadcrumbs ======= -->
   <div class="breadcrumbs">
     <div class="page-header d-flex align-items-center" style="background-color: var(--color-secondary);">
@@ -63,7 +63,16 @@
               </div>
 
               <div class="col-md-12 text-center">
-  
+                <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                          @if ($errors->has('g-recaptcha-response'))
+                              <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                          @endif
+                      </div>  
+                  </div>
+              </div>
 
                 <button type="submit">إرسال</button>
               

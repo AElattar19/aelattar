@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\front\Contact;
 
+use App\Rules\ReCaptcha;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Interfaces\ContactUsRepositoryInterface;
@@ -35,9 +36,10 @@ class ContactUsController extends Controller
             'country' => 'required|string',
             'phone' => 'required|string',
             'description' => 'required|string',
+            'g-recaptcha-response' => ['required', new ReCaptcha]
         ];
         $validatedData = $request->validate($data);
-        $post = $this->ContactUsRepository->create($request->all());
+        $post = $this->ContactUsRepository->create($request->except('g-recaptcha-response'));
         session()->flash('add');
         return redirect()->route('ContactUs');
     }
