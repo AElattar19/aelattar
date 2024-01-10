@@ -14,7 +14,7 @@
 
         <div class="col-lg-8 col-6">
           <div class="copyright">
-            &copy; All Rights Reserved <span>2024 A.Elattar.com </span>
+ All Rights Reserved <span> A.Elattar.com &copy; 2024</span>
           </div>
         </div>
 
