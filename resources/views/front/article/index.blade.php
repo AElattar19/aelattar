@@ -33,7 +33,7 @@
 
       <div class="row gy-4">
 
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <div class="services-list">
             <a href="#" class="active">Storage</a>
             <a href="#">Logistics</a>
@@ -47,7 +47,7 @@
           <p>Nam voluptatem quasi numquam quas fugiat ex temporibus quo est. Quia aut quam quod facere ut non occaecati ut aut. Nesciunt mollitia illum tempore corrupti sed eum reiciendis. Maxime modi rerum.</p>
         </div>
 
-        <div class="col-lg-8">
+        <div class="col-lg-9">
           <p> {!! nl2br($data->des) !!}</p>
         </div>
 
