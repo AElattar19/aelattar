@@ -120,14 +120,12 @@
           <div class="row col-lg-12">
 
             @foreach ($ArticleHome as $key => $data)
-            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="{{ ($key+'1')*'200' }}">
-              <div class="card bg-info">
+            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="{{ ($key+'1')*'200' }}" style="margin-bottom:5px">
+              <div class="card bg-danger">
                 <div class="card-body">
                     
                     <a href="{{ route('ArticleDetalies',$data->slug) }}">
-                    <button class="accordion-button collapsed" data-bs-toggle="collapse" >
                       {{ $data->title }}
-                    </button>
                   </a>
               </div><!-- # Faq item-->
               </div><!-- # Faq item-->

@@ -19,6 +19,7 @@
         <ol>
           <li><a href="{{ (route ('home')) }}">{{ __('front.Home') }}</a></li>
           <li>{{ __('front.Category') }}</li>
+          <li><a href="{{ (route ('CategoryHome',$data->Category->slug) ) }}">{{$data->Category->title}}</a></li>
           <li>{{$data->title}}</li>
         </ol>
       </div>

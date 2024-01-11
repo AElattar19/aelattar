@@ -5,6 +5,7 @@ namespace App\Models;
 use Spatie\Sluggable\HasSlug;
 use Spatie\MediaLibrary\HasMedia;
 
+use Spatie\Searchable\Searchable;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes, HasSlug, InteractsWithMedia;
+    use HasFactory, SoftDeletes, HasSlug, InteractsWithMedia, Searchable;
     protected $guarded = [];
     public function getSlugOptions() : SlugOptions
     {
@@ -22,6 +23,15 @@ class Article extends Model implements HasMedia
             ->saveSlugsTo('slug')
             ->usingSeparator('-');
     }
+
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'des' => $this->des,
+        ];
+    }
+
 
     public function Category()
     {
