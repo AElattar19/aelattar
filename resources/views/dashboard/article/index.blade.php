@@ -40,6 +40,7 @@
                 <table id="dataTable" class="table table-bordered yajra-datatable">
                     <thead>
                         <tr>
+                            <th>checkbox</th>
                             <th>title</th>
                             <th>rank</th>
                             <th width="150px">Action</th>
@@ -48,7 +49,10 @@
                     <tbody>
                     </tbody>
                 </table>
-               
+                <input type="button" class="btn btn-warning" onclick='selects()' value="Select All"/>  
+                <input type="button" class="btn btn-primary" onclick='deSelect()' value="Deselect All"/>  
+                <input type="submit" id="submitButton" class="btn btn-danger" value="Delete All"/> 
+                </form>  
             </div>
             <!-- /.card-body -->
         </div>
@@ -80,6 +84,7 @@
           ],
           ajax: "{{ route('ArticleIndex', $id) }}",
           columns: [
+              {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
               {data: 'title', name: 'title'},
               {data: 'rank', name: 'rank'},
               {data: 'action', name: 'action',  orderable: true,searchable: true }
@@ -87,6 +92,36 @@
       });
       
     });
+
+    
+    $(document).ready(function() {
+    // عند النقر على زر الإرسال
+    $("#submitButton").on("click", function() {
+        // التحقق من أن خانة اختيار واحدة على الأقل محددة
+        if ($("input[type=checkbox]:checked").length === 0) {
+            // إظهار رسالة خطأ
+            alert("you must select At least one of the checkboxes");
+            // منع إرسال النموذج
+            return false;
+        }
+    });
+}); 
+
+function selects(){  
+var ele=document.getElementsByName('ids[]');  
+for(var i=0; i<ele.length; i++){  
+    if(ele[i].type=='checkbox')  
+        ele[i].checked=true;  
+}  
+}  
+function deSelect(){  
+    var ele=document.getElementsByName('ids[]');  
+    for(var i=0; i<ele.length; i++){  
+        if(ele[i].type=='checkbox')  
+            ele[i].checked=false;  
+            
+    }  
+}
   </script>
 
 

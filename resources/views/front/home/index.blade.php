@@ -117,26 +117,22 @@
         </div>
 
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-lg-10">
+          <div class="row col-lg-12">
 
-            <div class="accordion accordion-flush" id="faqlist">
-
-              @foreach ($ArticleHome as $key => $data)
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  
-                  <a href="{{ route('ArticleDetalies',$data->slug) }}">
-                  <button class="accordion-button collapsed" data-bs-toggle="collapse" >
-                    {{ $data->title }}
-                  </button>
-                </a>
-                </h3>
-
+            @foreach ($ArticleHome as $key => $data)
+            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="{{ ($key+'1')*'200' }}">
+              <div class="card bg-info">
+                <div class="card-body">
+                    
+                    <a href="{{ route('ArticleDetalies',$data->slug) }}">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" >
+                      {{ $data->title }}
+                    </button>
+                  </a>
               </div><!-- # Faq item-->
+              </div><!-- # Faq item-->
+            </div><!-- # Faq item-->
               @endforeach
-
-
-            </div>
 
           </div>
         </div>

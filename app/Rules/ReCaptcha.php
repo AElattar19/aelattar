@@ -29,9 +29,6 @@ class ReCaptcha implements ValidationRule
         return $response->json()["success"];
     }
 
-    public function message()
-    {
-        return 'The google recaptcha is required.';
-    }
+
 
 }

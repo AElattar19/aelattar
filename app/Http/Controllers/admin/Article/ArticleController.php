@@ -38,6 +38,9 @@ class ArticleController extends Controller
             $menus = Article::query()->where('category_id', $id)->get();
             return DataTables::of($menus)
                ->addIndexColumn()
+               ->addColumn('checkbox', function ($row) {
+                return '<input type="checkbox" id="'.$row->id.'" value="'.$row->id.'" name="ids[]"  />';
+            })
                ->addColumn('title', function ($row) {
                 return $row->title;
                 })
@@ -67,7 +70,7 @@ class ArticleController extends Controller
 
                     return $html;
                 })
-                ->rawColumns(['title','rank','action'])
+                ->rawColumns(['checkbox','title','rank','action'])
                 ->make(true);
     }
     

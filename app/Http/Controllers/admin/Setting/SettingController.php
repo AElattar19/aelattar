@@ -56,7 +56,7 @@ class SettingController extends Controller
             $image->save();
         }
 
-        $image->save();
+      
         return redirect()->route('setting.index');
     }
 

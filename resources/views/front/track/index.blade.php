@@ -19,6 +19,9 @@
         <ol>
           <li><a href="{{ (route ('home')) }}">{{ __('front.Home') }}</a></li>
           <li>{{ __('front.Tracks') }}</li>
+           @if ($data->parent !=0)
+          <li><a href="{{ (route ('home')) }}">{{ __('front.Home') }}</a></li>
+          @endif
           <li>{{$data->title}}</li>
         </ol>
       </div>
@@ -35,13 +38,13 @@
 
       <div class="row gy-4">
 
-        @foreach ($data->Lessons as $key => $data)
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ ($key+'1')*'200' }}">
+        @foreach ($data->Lessons as $key => $lesson)
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="card">
             <div class="card-img">
-              <img src="{{ $data->getFirstMediaUrl('track') }}" alt="" class="img-fluid">
+              <img src="{{ $lesson->ytimg }}" alt="" class="img-fluid">
             </div>
-            <h3><a href="#" class="stretched-link">{{ $data->title }}</a></h3>
+            <h3><a href="{{ $lesson->link }}" class="stretched-link" target="_blanc">{{ $lesson->title }}</a></h3>
           </div>
         </div><!-- End Card Item -->
       @endforeach
@@ -55,4 +58,5 @@
 
 </main><!-- End #main -->
 
-  @endsection
+
+@endsection

@@ -54,7 +54,7 @@ class TrackRepository implements TrackRepositoryInterface
 
     public function getbySlug($slug)
     {
-        return Track::where("slug", $slug)->with('Lessons')->first();
+        return Track::where("slug", $slug)->with('children')->with('Lessons')->first();
     }
 
 
