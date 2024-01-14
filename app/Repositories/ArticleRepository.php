@@ -19,6 +19,17 @@ class ArticleRepository implements ArticleRepositoryInterface
        return Article::all()->toArray();
     }
 
+    public function GetNum()
+    {
+        return Article::count(); 
+    }
+
+    public function search($request)
+    {
+            return Article::search($request)->paginate(6);
+     // return Article::search($request)->pagination();
+    }
+
     public function home()
     {
        return Article::where("home", 1)->where("status", 1)->inRandomOrder()->limit('8')->get();

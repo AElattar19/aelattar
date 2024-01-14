@@ -12,10 +12,8 @@
           </div>
         </div>
 
-        <div class="col-lg-8 col-6">
-          <div class="copyright">
- All Rights Reserved <span> A.Elattar.com &copy; 2024</span>
-          </div>
+        <div class="col-lg-8 col-12 footer-info">
+          <div class="copyright">All Rights Reserved <span> AElattar.com &copy; 2024</span></div>
         </div>
 
 

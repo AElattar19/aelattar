@@ -120,17 +120,17 @@
           <div class="row col-lg-12">
 
             @foreach ($ArticleHome as $key => $data)
-            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="{{ ($key+'1')*'200' }}" style="margin-bottom:5px">
-              <div class="card bg-danger">
-                <div class="card-body">
-                    
-                    <a href="{{ route('ArticleDetalies',$data->slug) }}">
-                      {{ $data->title }}
-                  </a>
-              </div><!-- # Faq item-->
-              </div><!-- # Faq item-->
-            </div><!-- # Faq item-->
-              @endforeach
+   
+            <div class="col-lg-6 col-md-6">
+              <h4 data-aos="zoom-in" data-aos-once="true">
+                <a href="{{ route('ArticleDetalies',$data->slug) }}">
+                  {{ $data->title }}
+              </a>
+              </h4>
+              <span class="title-underline-hr mt-1 mb-4"></span>
+            </div>
+
+            @endforeach
 
           </div>
         </div>

@@ -50,9 +50,19 @@
               نسعى لتقديم مسارات شاملة لتطوير الويب وتعلم البرمجة باللغة العربية، وذلك من خلال تقديم شرحات تفصيلية تفاعلية وخطط دراسة مدعومة بالاختبارات والتحديات البرمجية، مما يساعد الجميع على فهم الكود وتطبيقه بسهولة.
             </p>
 
-            <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-              <input type="text" class="form-control" placeholder="{{ __('front.Contact_Holder') }}">
+            <form action="{{  route('search', $data)  }}" method="get" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-lg-6 col-6">
+              <input type="text" name="search_query" class="form-control" placeholder="{{ __('front.Contact_Holder') }}">
+              </div>
+              <div class="col-lg-4 col-6">
+              <select name="type" style="display: none;" class="option">
+                <option value="1">الفيديوهات</option>
+                <option value="2">الدروس - الشروحات</option>
+              </select>
+              </div>
+              <div class="col-lg-2 col-6" style="float: left">
               <button type="submit" class="btn btn-primary">{{ __('front.Search') }}</button>
+              </div>
             </form>
 
             <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
@@ -66,7 +76,7 @@
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+                  <span data-purecounter-start="0" data-purecounter-end="{{ $LessonsNum }}" data-purecounter-duration="1" class="purecounter"></span>
                   <p>{{ __('front.Videos_Num') }}</p>
                 </div>
               </div><!-- End Stats Item -->
@@ -80,7 +90,7 @@
 
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+                  <span data-purecounter-start="0" data-purecounter-end="{{ $ArticlesNum }}" data-purecounter-duration="1" class="purecounter"></span>
                   <p>{{ __('front.Aticles_Num') }}</p>
                 </div>
               </div><!-- End Stats Item -->
@@ -95,6 +105,14 @@
         </div>
       </div>
     </section><!-- End Hero Section -->
+
+    <script>
+      function onTextClick() {
+        document.querySelector("select").style.display = "block";
+      }
+
+      document.querySelector("input").addEventListener("mouseover", onTextClick);
+    </script>
   @endif
 
   @yield('main')

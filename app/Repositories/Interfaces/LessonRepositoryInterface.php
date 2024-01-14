@@ -11,12 +11,16 @@ interface LessonRepositoryInterface
     public function all(int $id):array;
 
     public function home();
+
+    public function GetNum();
     
     public function latest(int $id):array;
 
     public function getbyid(int $id): Lesson;
 
     public function create($request): Lesson;
+
+    public function search($request);
 
     public function edit(int $id): Lesson;
 

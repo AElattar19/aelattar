@@ -20,7 +20,7 @@
           <li><a href="{{ (route ('home')) }}">{{ __('front.Home') }}</a></li>
           <li>{{ __('front.Tracks') }}</li>
            @if ($data->parent !=0)
-          <li><a href="{{ (route ('home')) }}">{{ __('front.Home') }}</a></li>
+          <li><a href="{{ (route ('home')) }}">{{$data->parents->title}}</a></li>
           @endif
           <li>{{$data->title}}</li>
         </ol>

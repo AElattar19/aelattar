@@ -18,7 +18,18 @@ class LessonRepository implements LessonRepositoryInterface
     {
        return Lesson::where("id", $id)->get();
     }
+
+    public function search($request)
+    {
+        return Lesson::search($request)->paginate(6);
+    }
+
     
+    public function GetNum()
+    {
+        return Lesson::count(); 
+    }
+
     public function home()
     {
        return Lesson::where("home", 1)->where("status", 1)->inRandomOrder()->limit('8')->get();

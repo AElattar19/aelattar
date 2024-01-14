@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Models;
+use Laravel\Scout\Searchable;
 use Spatie\Sluggable\HasSlug;
-use Spatie\Searchable\Searchable;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

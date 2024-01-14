@@ -175,9 +175,11 @@ public function track (Request $request, $id)
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Track $track)
+    public function edit(Request $request, $id)
     {
-        //
+        $categories = $this->repository->GetMaster();
+        $data = $this->repository->getbyid($id);
+        return view('dashboard.article.edit', compact(['categories', 'data']));
     }
 
     /**

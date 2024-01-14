@@ -29,26 +29,30 @@
 
 
   <!-- ======= Services Section ======= -->
-  <section id="service-details" class="service-details">
+  <section id="pricing" class="pricing">
     <div class="container" data-aos="fade-up">
 
       <div class="row gy-4">
 
-        <div class="col-lg-3">
-          <div class="services-list">
-            <a href="#" class="active">Storage</a>
-            <a href="#">Logistics</a>
-            <a href="#">Cargo</a>
-            <a href="#">Trucking</a>
-            <a href="#">Packaging</a>
-            <a href="#">Warehousing</a>
+        <div class="col-lg-3 pricing-item featured ml-1">
+          <div class="section-header">
+            <h2>مواضيع أخرى</h2>
           </div>
+            @foreach ($ArticleHome as $key => $Article)
+    
+              <div class="col-lg-12 col-md-6">
+                <h4 data-aos="zoom-in" data-aos-once="true">
+                  <a href="{{ route('ArticleDetalies',$Article->slug) }}">
+                    {{ $Article->title }}
+                </a>
+                </h4>
+                <span class="title-underline-hr mt-1 mb-4"></span>
+              </div>
 
-          <h4>Enim qui eos rerum in delectus</h4>
-          <p>Nam voluptatem quasi numquam quas fugiat ex temporibus quo est. Quia aut quam quod facere ut non occaecati ut aut. Nesciunt mollitia illum tempore corrupti sed eum reiciendis. Maxime modi rerum.</p>
+            @endforeach
         </div>
 
-        <div class="col-lg-9">
+        <div class="col-lg-8 pricing-item featured Article">
           <p> {!! nl2br($data->des) !!}</p>
         </div>
 

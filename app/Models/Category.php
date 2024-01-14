@@ -24,7 +24,7 @@ class Category extends Model implements HasMedia
 
     public function Articles(): HasMany
     {
-       return $this->hasMany(Article::class);
+       return $this->hasMany(Article::class)->orderBy('rank', 'ASC');
     }
 
     

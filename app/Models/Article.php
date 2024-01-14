@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Spatie\Sluggable\HasSlug;
-use Spatie\MediaLibrary\HasMedia;
 
-use Spatie\Searchable\Searchable;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;

@@ -37,8 +37,8 @@ class HomeController extends Controller
         $TracksNum = $this->TrackRepository->GetNum();
         $CategoriesNum = $this->CategoryRepository->GetNum();
 
-        $LessonsNum = $this->TrackRepository->GetMaster();
-        $ArticlesNum = $this->TrackRepository->GetMaster();
+        $LessonsNum = $this->LessonRepository->GetNum();
+        $ArticlesNum = $this->ArticleRepository->GetNum();
 
         $LessonHome = $this->LessonRepository->home();
         $ArticleHome = $this->ArticleRepository->home();

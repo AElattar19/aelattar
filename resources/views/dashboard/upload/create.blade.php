@@ -18,7 +18,7 @@
     <!-- breadcrumb -->
 
     <!-- row -->
-    <form method="post" enctype="multipart/form-data" action="{{ route('track.store') }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('upload.store') }}">
 
     <div class="row row-sm">
         <!-- Col -->
@@ -52,41 +52,15 @@
                                                     <div class="row row-sm">
                                                         <div class="col-lg-6 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10 required">title</p>
-                                                            <input class="form-control" id="Text input with radiobox" type="text" name="title"  required>
+                                                            <input class="form-control" id="Text input with radiobox" type="text" name="name"  required>
                                                         </div>
 
                                                         <div class="col-lg-6 mg-b-20 mg-lg-b-0">
-                                                            <p class="mg-b-10">Master Tracks</p>
-                                                            <select name="parent" id="" class="form-control">
-                                                                <option value="0">Main Track</option>
-                                                                @foreach ($Tracks as $Track)
-                                                                <option value="{{$Track->id}}">{{$Track->title}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row row-sm">
-
-                                                        <div class="col-lg-4 mg-b-20 mg-lg-b-0">
                                                             <p class="mg-b-10 required">image</p>
-                                                            <input class="form-control" type="file" name="image"  required>
+                                                            <input class="form-control" type="file" name="file"  required>
                                                         </div>
 
-                                                        <div class="col-lg-4 mg-b-20 mg-lg-b-0">
-                                                            <p class="mg-b-10">status</p>
-                                                            <select name="status" id="status" class="form-control" >
-                                                                <option value="1">publish</option>
-                                                                <option value="0">un publish</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-lg-4 mg-b-20 mg-lg-b-0">
-                                                            <p class="mg-b-10">rank</p>
-                                                            <select class="form-control select2-no-search" name="rank">
-                                                                @for ($i = 1; $i <= 30; $i++)
-                                                                    <option value="{{ $i }}">{{ $i }}</option>
-                                                                @endfor                                                                             
-                                                            </select> 
-                                                        </div>
+
                                                     </div>
                                                
         

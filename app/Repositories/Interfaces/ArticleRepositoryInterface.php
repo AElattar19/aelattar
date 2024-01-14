@@ -12,11 +12,15 @@ interface ArticleRepositoryInterface
     
     public function home();
 
+    public function GetNum();
+
     public function latest(int $id):array;
 
     public function getbySlug($slug);
     
     public function getbyid(int $id): Article;
+
+    public function search($request);
 
     public function create($request): Article;
 

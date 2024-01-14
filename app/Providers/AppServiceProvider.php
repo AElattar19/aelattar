@@ -12,6 +12,7 @@ use App\Repositories\SettingRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ContactUsRepository;
+use App\Repositories\UploadRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\Interfaces\TrackRepositoryInterface;
 use App\Repositories\Interfaces\LessonRepositoryInterface;
@@ -19,6 +20,8 @@ use App\Repositories\Interfaces\ArticleRepositoryInterface;
 use App\Repositories\Interfaces\SettingRepositoryInterface;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Repositories\Interfaces\ContactUsRepositoryInterface;
+use App\Repositories\Interfaces\UploadRepositoryInterface;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(TrackRepositoryInterface::class, TrackRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(ContactUsRepositoryInterface::class, ContactUsRepository::class);
-
+        $this->app->bind(UploadRepositoryInterface::class, UploadRepository::class);
     }
 
     /**

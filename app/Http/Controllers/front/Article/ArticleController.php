@@ -27,9 +27,9 @@ class ArticleController extends Controller
 
     public function index($slug)
     {
-
+        $ArticleHome = $this->ArticleRepository->home();
         $data = $this->ArticleRepository->getbySlug($slug);
-        return view('front.article.index', compact('data'));
+        return view('front.article.index', compact(['data','ArticleHome']));
     }
 
    

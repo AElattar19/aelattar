@@ -26,7 +26,7 @@ class Track extends Model implements HasMedia
 
     public function Lessons(): HasMany
     {
-       return $this->hasMany(Lesson::class, 'track_id');
+       return $this->hasMany(Lesson::class, 'track_id')->orderBy('rank', 'ASC');
     }
 
     public function parents()
