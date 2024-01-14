@@ -53,6 +53,7 @@
         </div>
 
         <div class="col-lg-8 pricing-item featured Article">
+          <nav>{{ $data->created_at }}</nav>
           <p> {!! nl2br($data->des) !!}</p>
         </div>
 

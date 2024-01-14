@@ -163,6 +163,11 @@ pre br{
 .Article img{
   max-width: 100%;
   }
+.Article nav{
+  color: rgba(14, 29, 52, 1) !important;
+  float: left;
+  font-weight: bold;
+  }
   
 .breadcrumbs .page-header {
   padding: 140px 0 80px 0;
