@@ -36,18 +36,25 @@
 
         <div class="col-lg-3 pricing-item featured ml-1">
           <div class="section-header">
-            <h2>مواضيع أخرى</h2>
+            <h2>ذات صلة</h2>
           </div>
             @foreach ($ArticleHome as $key => $Article)
-    
-              <div class="col-lg-12 col-md-6">
+
+              {{-- <div class="col-lg-12 col-md-6">
                 <h4 data-aos="zoom-in" data-aos-once="true">
                   <a href="{{ route('ArticleDetalies',$Article->slug) }}">
                     {{ $Article->title }}
                 </a>
                 </h4>
                 <span class="title-underline-hr mt-1 mb-4"></span>
+              </div> --}}
+
+              <div class="col-lg-12 col-md-6 mb-15">
+                <div class="card p-1">
+                  <a class="w-fit fw-bold c-main d-block fs-15 mb-15" href="{{ route('ArticleDetalies',$Article->slug) }}">
+                    {{ $Article->title }}</a>
               </div>
+            </div>
 
             @endforeach
         </div>

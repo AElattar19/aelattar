@@ -1,20 +1,21 @@
 <?php
 
 namespace App\Http\Controllers\front\Article;
-use App\Models\Article;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Html;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Repositories\Interfaces\ArticleRepositoryInterface;
-use Illuminate\Support\Facades\Html;
 
 
 
 class ArticleController extends Controller
 {
+
     private ArticleRepositoryInterface $ArticleRepository;
 
     /**
